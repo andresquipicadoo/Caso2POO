@@ -20,6 +20,11 @@ public class Region {
     	// Devuelvve el clima que presenta la region.
         return clima;
     }
+
+	public static void add(climaRegion region) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

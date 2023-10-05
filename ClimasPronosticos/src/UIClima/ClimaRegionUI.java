@@ -1,5 +1,5 @@
 package UIClima;
-
+import Clima.climaRegion;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,6 +16,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class ClimaRegionUI extends JFrame {
     //una ventana para consultar el clima por fecha y por area
@@ -31,6 +33,7 @@ public class ClimaRegionUI extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -86,19 +89,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2.setBounds(20, 55, 323, 362);
 		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_9 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9.setBounds(376, 55, 341, 13);
-		panel.add(lblNewLabel_9);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Dia");
-		rdbtnNewRadioButton.setBounds(376, 82, 148, 42);
-		panel.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_1.setBounds(552, 82, 148, 42);
-		panel.add(rdbtnNewRadioButton_1);
-		
 		JLabel lblNewLabel_10_6 = new JLabel("Digite una fecha");
 		lblNewLabel_10_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		lblNewLabel_10_6.setBounds(376, 137, 203, 22);
@@ -110,6 +100,12 @@ public class ClimaRegionUI extends JFrame {
 		textField_6.setColumns(10);
 		
 		JButton btnNewButton_8 = new JButton("Consultar");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_8.setAction(action);
 		btnNewButton_8.setForeground(new Color(255, 255, 255));
 		btnNewButton_8.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_8.setBackground(new Color(0, 0, 205));
@@ -130,19 +126,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\central-pacific-es-2117eb60b49aa70b9042d2dd8cee44558be07be107366c337fb8d9d8ca2378d8(1).jpg"));
 		lblNewLabel_2_1.setBounds(10, 48, 323, 362);
 		panel_2.add(lblNewLabel_2_1);
-		
-		JLabel lblNewLabel_9_1 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1.setBounds(373, 31, 341, 13);
-		panel_2.add(lblNewLabel_9_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_2.setBounds(373, 59, 148, 34);
-		panel_2.add(rdbtnNewRadioButton_2);
-		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_3.setBounds(535, 58, 156, 34);
-		panel_2.add(rdbtnNewRadioButton_3);
 		
 		JLabel lblNewLabel_10_1 = new JLabel("Digite una fecha");
 		lblNewLabel_10_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -176,19 +159,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_2.setBounds(10, 49, 323, 362);
 		panel_3.add(lblNewLabel_2_2);
 		
-		JLabel lblNewLabel_9_1_1 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_1.setBounds(354, 49, 341, 13);
-		panel_3.add(lblNewLabel_9_1_1);
-		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_4.setBounds(354, 79, 148, 34);
-		panel_3.add(rdbtnNewRadioButton_4);
-		
-		JRadioButton rdbtnNewRadioButton_5 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_5.setBounds(522, 79, 156, 34);
-		panel_3.add(rdbtnNewRadioButton_5);
-		
 		JLabel lblNewLabel_10_2 = new JLabel("Digite una fecha");
 		lblNewLabel_10_2.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		lblNewLabel_10_2.setBounds(354, 119, 203, 26);
@@ -220,19 +190,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_2_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\north-es-9662b67f690fbeb2281d3ccd2afb53ab2e265dfe5be3bfab084d2906878bfe2c(1).jpg"));
 		lblNewLabel_2_2_1.setBounds(10, 51, 323, 362);
 		panel_1.add(lblNewLabel_2_2_1);
-		
-		JLabel lblNewLabel_9_1_2 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_2.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_2.setBounds(360, 51, 341, 13);
-		panel_1.add(lblNewLabel_9_1_2);
-		
-		JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_6.setBounds(360, 84, 160, 35);
-		panel_1.add(rdbtnNewRadioButton_6);
-		
-		JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_7.setBounds(547, 84, 140, 35);
-		panel_1.add(rdbtnNewRadioButton_7);
 		
 		JLabel lblNewLabel_10_3 = new JLabel("Digite una fecha");
 		lblNewLabel_10_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -266,19 +223,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_2_1_1.setBounds(10, 54, 323, 362);
 		panel_4.add(lblNewLabel_2_2_1_1);
 		
-		JLabel lblNewLabel_9_1_3 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_3.setBounds(385, 54, 341, 13);
-		panel_4.add(lblNewLabel_9_1_3);
-		
-		JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_8.setBounds(385, 83, 160, 33);
-		panel_4.add(rdbtnNewRadioButton_8);
-		
-		JRadioButton rdbtnNewRadioButton_9 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_9.setBounds(560, 83, 148, 33);
-		panel_4.add(rdbtnNewRadioButton_9);
-		
 		JLabel lblNewLabel_10_4 = new JLabel("Digite una fecha");
 		lblNewLabel_10_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		lblNewLabel_10_4.setBounds(383, 127, 203, 22);
@@ -310,19 +254,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_2_1_1_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\caribbean-es-78570a1469d957353d6282abe0ecb1fa2fa77ce636ece0dfe5d08d9780d8d452(1).jpg"));
 		lblNewLabel_2_2_1_1_1.setBounds(10, 45, 323, 362);
 		panel_5.add(lblNewLabel_2_2_1_1_1);
-		
-		JLabel lblNewLabel_9_1_4 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_4.setBounds(350, 54, 341, 13);
-		panel_5.add(lblNewLabel_9_1_4);
-		
-		JRadioButton rdbtnNewRadioButton_10 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_10.setBounds(349, 83, 149, 31);
-		panel_5.add(rdbtnNewRadioButton_10);
-		
-		JRadioButton rdbtnNewRadioButton_11 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_11.setBounds(512, 83, 156, 31);
-		panel_5.add(rdbtnNewRadioButton_11);
 		
 		JLabel lblNewLabel_10_5 = new JLabel("Digite una fecha");
 		lblNewLabel_10_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -356,19 +287,6 @@ public class ClimaRegionUI extends JFrame {
 		lblNewLabel_2_2_1_1_2.setBounds(10, 44, 323, 362);
 		panel_6.add(lblNewLabel_2_2_1_1_2);
 		
-		JLabel lblNewLabel_9_1_5 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_5.setBounds(343, 54, 341, 13);
-		panel_6.add(lblNewLabel_9_1_5);
-		
-		JRadioButton rdbtnNewRadioButton_12 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_12.setBounds(342, 84, 166, 34);
-		panel_6.add(rdbtnNewRadioButton_12);
-		
-		JRadioButton rdbtnNewRadioButton_13 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_13.setBounds(525, 84, 137, 34);
-		panel_6.add(rdbtnNewRadioButton_13);
-		
 		JLabel lblNewLabel_10 = new JLabel("Digite una fecha");
 		lblNewLabel_10.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		lblNewLabel_10.setBounds(343, 134, 203, 27);
@@ -390,4 +308,12 @@ public class ClimaRegionUI extends JFrame {
 	        
 	        dispose();
 	    }
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }
