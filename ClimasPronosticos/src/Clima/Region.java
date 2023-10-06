@@ -3,12 +3,10 @@ package Clima;
 public class Region {
 
 	private String nombre;
-	private String clima;
 
 
-    public Region(String nombreRegion, String climaRegion) {
+    public Region(String nombreRegion) {
         this.nombre = nombreRegion;
-        this.clima = climaRegion;
     }
 
     public String getNombre() {
@@ -16,12 +14,7 @@ public class Region {
         return nombre;
     }
 
-    public String getClima() {
-    	// Devuelvve el clima que presenta la region.
-        return clima;
-    }
-
-	public static void add(climaRegion region) {
+	public static void add(ClimaRegion region) {
 		// TODO Auto-generated method stub
 		
 	}

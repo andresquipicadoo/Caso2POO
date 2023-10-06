@@ -1,6 +1,6 @@
 package Clima;
 
-public class climaRegion extends ClimaManager {
+public class ClimaRegion {
 	private String condClima;
 	private int temnMaxima;
 	private int tempMininima;
@@ -10,18 +10,22 @@ public class climaRegion extends ClimaManager {
 	private String faseLunar;
 	private String porcentajeIndiceUV;
 	private Region region;
-	public climaRegion(String condClima, int temnMaxima,int tempMininima,int humedad,int lluvia,String viento,String faseLunar,String porcentajeIndiceUV,Region region) {
 
-		this.condClima=condClima;
-		this.faseLunar=faseLunar;
+	public ClimaRegion(String condClima, int temnMaxima, int tempMininima, int humedad, int lluvia, String viento,
+			String faseLunar, String porcentajeIndiceUV, Region region) {
+
+		this.condClima = condClima;
+		this.faseLunar = faseLunar;
 		this.setLluvia(lluvia);
-		this.tempMininima=tempMininima;
-		this.porcentajeIndiceUV=porcentajeIndiceUV;
-		this.humedad=humedad;
+		this.tempMininima = tempMininima;
+		this.porcentajeIndiceUV = porcentajeIndiceUV;
+		this.humedad = humedad;
 		this.setViento(viento);
-		this.temnMaxima=temnMaxima;
-		this.tempMininima=tempMininima;
+		this.temnMaxima = temnMaxima;
+		this.tempMininima = tempMininima;
+		this.region = region;
 	}
+
 	public String getCondClima() {
 		return condClima;
 	}
@@ -61,9 +65,9 @@ public class climaRegion extends ClimaManager {
 	public String getPorcentajeIndiceUV() {
 		return porcentajeIndiceUV;
 	}
+
 	public Region getRegion() {
 		return region;
 	}
 
-	
 }

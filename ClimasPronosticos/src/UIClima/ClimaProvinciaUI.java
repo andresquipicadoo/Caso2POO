@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.DefaultComboBoxModel;
 import UIClima.validarFecha;
-import Clima.climaCanton;
+import Clima.ClimaCanton;
 public class ClimaProvinciaUI extends JFrame {
 	//una ventana para consultar el clima por fecha y por area
 

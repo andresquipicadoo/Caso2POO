@@ -1,6 +1,6 @@
 package Clima;
 
-public class climaCanton {
+public class ClimaCanton {
 	private String condClima;
 	private int temnMaxima;
 	private int tempMininima;
@@ -9,9 +9,9 @@ public class climaCanton {
 	private String viento;
 	private String faseLunar;
 	private String porcentajeIndiceUV;
-	private  Cantones cantones;
+	private Canton canton;
 	
-	public climaCanton(String condClima, int temnMaxima,int tempMininima,int humedad,int lluvia,String viento,String faseLunar,String porcentajeIndiceUV,Cantones canton) {
+	public ClimaCanton(String condClima, int temnMaxima,int tempMininima,int humedad,int lluvia,String viento,String faseLunar,String porcentajeIndiceUV,Canton canton) {
 		
 		this.condClima=condClima;
 		this.faseLunar=faseLunar;
@@ -22,13 +22,7 @@ public class climaCanton {
 		this.setViento(viento);
 		this.temnMaxima=temnMaxima;
 		this.tempMininima=tempMininima;
-		this.cantones=canton;
-		
-		
-		
-		
-		
-		
+		this.canton=canton;
 	}
 
 	public String getCondClima() {
@@ -71,8 +65,8 @@ public class climaCanton {
 		return porcentajeIndiceUV;
 	}
 
-	public Cantones getCantones() {
-		return cantones;
+	public Canton getCanton() {
+		return canton;
 	}
 	
 	

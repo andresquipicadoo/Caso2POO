@@ -1,5 +1,5 @@
 package UIClima;
-import Clima.climaRegion;
+import Clima.ClimaRegion;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

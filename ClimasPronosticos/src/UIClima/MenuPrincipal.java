@@ -5,11 +5,20 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Clima.Canton;
+import Clima.ClimaCanton;
+import Clima.ClimaRegion;
+import Clima.LeerJSONCantones;
+import Clima.LeerJSONRegiones;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.net.URISyntaxException;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -22,6 +31,8 @@ public class MenuPrincipal extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		leerDatosCantones();
+		leerDatosRegiones();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -99,5 +110,48 @@ public class MenuPrincipal extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\Free Wallpaper, Fractal, Lines Background Images, Wave Pattern Texture Graphic Background Photo Background PNG and Vectors(1).jpeg"));
 		lblNewLabel_1.setBounds(10, 10, 702, 389);
 		contentPane.add(lblNewLabel_1);
+	}
+
+	private static void leerDatosCantones() {
+		System.out.println("*** Clima por Provincias/Cantones ***");
+		try {
+			List<ClimaCanton> listaCantones = LeerJSONCantones.leer();
+			for (ClimaCanton climaCanton : listaCantones) {
+				System.out.println(String.format("Provincia: %s, Canton: %s", 
+						climaCanton.getCanton().getProvincia().getNombre(),
+						climaCanton.getCanton().getNombreCanton()));
+				System.out.println(String.format("Condicion: %s", 
+						climaCanton.getCondClima()));
+				System.out.println(String.format("Temp. Min: %s; Temp. Max: %s", 
+						climaCanton.getTempMininima(),
+						climaCanton.getTemnMaxima()));
+				System.out.println("=========================");
+			}
+		} 
+		catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private static void leerDatosRegiones() {
+		System.out.println("*** Clima por Regiones ***");
+		try {
+			List<ClimaRegion> listaRegiones = LeerJSONRegiones.leer();
+			for (ClimaRegion climaRegion : listaRegiones) {
+				System.out.println(String.format("Region: %s", 
+						climaRegion.getRegion().getNombre()));
+				System.out.println(String.format("Condicion: %s", 
+						climaRegion.getCondClima()));
+				System.out.println(String.format("Temp. Min: %s; Temp. Max: %s", 
+						climaRegion.getTempMininima(),
+						climaRegion.getTemnMaxima()));
+				System.out.println("=========================");
+			}
+		} 
+		catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
