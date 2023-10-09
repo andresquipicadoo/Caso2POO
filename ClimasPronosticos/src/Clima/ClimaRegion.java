@@ -11,6 +11,8 @@ public class ClimaRegion {
 	private String porcentajeIndiceUV;
 	private Region region;
 
+	
+
 	public ClimaRegion(String condClima, int temnMaxima, int tempMininima, int humedad, int lluvia, String viento,
 			String faseLunar, String porcentajeIndiceUV, Region region) {
 
@@ -24,6 +26,8 @@ public class ClimaRegion {
 		this.temnMaxima = temnMaxima;
 		this.tempMininima = tempMininima;
 		this.region = region;
+		
+		
 	}
 
 	public String getCondClima() {
@@ -69,5 +73,15 @@ public class ClimaRegion {
 	public Region getRegion() {
 		return region;
 	}
+
+
+
+
+
+
+	
+
+	
+	
 
 }

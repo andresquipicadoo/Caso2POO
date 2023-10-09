@@ -89,24 +89,9 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox.setBounds(432, 53, 197, 34);
 		panel.add(comboBox);
 		
-		JLabel lblNewLabel_9 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9.setBounds(437, 97, 341, 13);
-		panel.add(lblNewLabel_9);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Dia");
-		rdbtnNewRadioButton.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton.setBounds(435, 130, 151, 34);
-		panel.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_1.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_1.setBounds(611, 130, 173, 34);
-		panel.add(rdbtnNewRadioButton_1);
-		
 		JLabel lblNewLabel_10 = new JLabel("Digite una fecha");
 		lblNewLabel_10.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10.setBounds(437, 170, 203, 22);
+		lblNewLabel_10.setBounds(442, 97, 203, 22);
 		panel.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("New label");
@@ -116,31 +101,35 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JButton btnNewButton_8 = new JButton("Consultar");
 		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = fecha.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			
 			}
 		
@@ -149,7 +138,7 @@ public class ClimaProvinciaUI extends JFrame {
 		btnNewButton_8.setForeground(new Color(255, 255, 255));
 		btnNewButton_8.setBackground(new Color(0, 0, 255));
 		btnNewButton_8.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_8.setBounds(437, 258, 180, 44);
+		btnNewButton_8.setBounds(437, 182, 180, 44);
 		panel.add(btnNewButton_8);
 		
 		JLabel lblNewLabel_4_6 = new JLabel("San José");
@@ -158,7 +147,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel.add(lblNewLabel_4_6);
 		
 		fecha = new JTextField();
-		fecha.setBounds(437, 202, 168, 34);
+		fecha.setBounds(437, 129, 168, 34);
 		panel.add(fecha);
 		fecha.setColumns(10);
 		
@@ -188,23 +177,8 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_1.setBounds(459, 79, 196, 35);
 		panel_1.add(comboBox_1);
 		
-		JLabel lblNewLabel_9_1 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1.setBounds(459, 124, 341, 13);
-		panel_1.add(lblNewLabel_9_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_2.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_2.setBounds(459, 158, 167, 35);
-		panel_1.add(rdbtnNewRadioButton_2);
-		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_3.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_3.setBounds(644, 158, 140, 35);
-		panel_1.add(rdbtnNewRadioButton_3);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(459, 234, 196, 35);
+		textField_1.setBounds(459, 163, 196, 35);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -215,42 +189,51 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JButton btnNewButton_9 = new JButton("Consultar");
 		btnNewButton_9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			public void actionPerformed(ActionEvent e) {
+				
+				String fechaIngresada = textField_1.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+				
+				
 			}
 		});
 		btnNewButton_9.setForeground(new Color(255, 255, 255));
 		btnNewButton_9.setBackground(new Color(0, 0, 255));
 		btnNewButton_9.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_9.setBounds(459, 279, 196, 35);
+		btnNewButton_9.setBounds(459, 210, 196, 35);
 		panel_1.add(btnNewButton_9);
 		
 		JLabel lblNewLabel_10_1 = new JLabel("Digite una fecha");
 		lblNewLabel_10_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_1.setBounds(459, 199, 203, 22);
+		lblNewLabel_10_1.setBounds(459, 129, 203, 22);
 		panel_1.add(lblNewLabel_10_1);
 		
 		JLabel lblNewLabel_4_5 = new JLabel("Alajuela");
@@ -280,64 +263,63 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_2.setBounds(387, 49, 190, 32);
 		panel_2.add(comboBox_2);
 		
-		JLabel lblNewLabel_9_1_2_1 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_2_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_2_1.setBounds(387, 89, 341, 13);
-		panel_2.add(lblNewLabel_9_1_2_1);
-		
-		JRadioButton rdbtnNewRadioButton_12 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_12.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_12.setBounds(387, 118, 156, 32);
-		panel_2.add(rdbtnNewRadioButton_12);
-		
-		JRadioButton rdbtnNewRadioButton_13 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_13.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_13.setBounds(552, 118, 156, 32);
-		panel_2.add(rdbtnNewRadioButton_13);
-		
 		JLabel lblNewLabel_10_3_1 = new JLabel("Digite una fecha");
 		lblNewLabel_10_3_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_3_1.setBounds(387, 156, 203, 26);
+		lblNewLabel_10_3_1.setBounds(387, 91, 203, 26);
 		panel_2.add(lblNewLabel_10_3_1);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(385, 192, 178, 32);
+		textField_6.setBounds(387, 122, 178, 32);
 		panel_2.add(textField_6);
 		textField_6.setColumns(10);
 		
 		JButton btnNewButton_4 = new JButton("Consultar");
 		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			
+			
+			
+			
+			
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_6.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			}
 		});
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 255));
 		btnNewButton_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_4.setBounds(387, 236, 176, 32);
+		btnNewButton_4.setBounds(387, 170, 176, 32);
 		panel_2.add(btnNewButton_4);
 		
 		JLabel lblNewLabel_11_1_1 = new JLabel("New label");
@@ -371,28 +353,13 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_6.setBounds(270, 49, 192, 37);
 		panel_3.add(comboBox_6);
 		
-		JLabel lblNewLabel_9_1_2 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_2.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_2.setBounds(270, 99, 341, 13);
-		panel_3.add(lblNewLabel_9_1_2);
-		
-		JRadioButton rdbtnNewRadioButton_10 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_10.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_10.setBounds(276, 128, 146, 30);
-		panel_3.add(rdbtnNewRadioButton_10);
-		
-		JRadioButton rdbtnNewRadioButton_11 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_11.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_11.setBounds(439, 128, 154, 30);
-		panel_3.add(rdbtnNewRadioButton_11);
-		
 		JLabel lblNewLabel_10_3 = new JLabel("Digite una fecha");
 		lblNewLabel_10_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_3.setBounds(270, 172, 203, 22);
+		lblNewLabel_10_3.setBounds(276, 96, 203, 22);
 		panel_3.add(lblNewLabel_10_3);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(269, 212, 177, 30);
+		textField_5.setBounds(276, 128, 177, 30);
 		panel_3.add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -403,37 +370,48 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JButton btnNewButton_11 = new JButton("Consultar");
 		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			
+			
+			
+			
+			
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_5.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			}
 		});
 		btnNewButton_11.setForeground(new Color(255, 255, 255));
 		btnNewButton_11.setBackground(new Color(0, 0, 255));
 		btnNewButton_11.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_11.setBounds(270, 255, 176, 37);
+		btnNewButton_11.setBounds(276, 173, 176, 37);
 		panel_3.add(btnNewButton_11);
 		
 		JLabel lblNewLabel_4_3 = new JLabel("Heredia");
@@ -463,64 +441,68 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_5.setBounds(456, 48, 187, 29);
 		panel_4.add(comboBox_5);
 		
-		JLabel lblNewLabel_9_1_3 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_3.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_3.setBounds(456, 87, 341, 13);
-		panel_4.add(lblNewLabel_9_1_3);
-		
-		JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_8.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_8.setBounds(456, 118, 158, 34);
-		panel_4.add(rdbtnNewRadioButton_8);
-		
-		JRadioButton rdbtnNewRadioButton_9 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_9.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_9.setBounds(628, 118, 145, 34);
-		panel_4.add(rdbtnNewRadioButton_9);
-		
 		JLabel lblNewLabel_10_4 = new JLabel("Digite una fecha");
 		lblNewLabel_10_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_4.setBounds(456, 158, 203, 23);
+		lblNewLabel_10_4.setBounds(454, 87, 203, 23);
 		panel_4.add(lblNewLabel_10_4);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(456, 184, 187, 29);
+		textField_4.setBounds(456, 120, 187, 29);
 		panel_4.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton_12 = new JButton("Consultar");
 		btnNewButton_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_4.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			}
 		});
 		btnNewButton_12.setForeground(new Color(255, 255, 255));
 		btnNewButton_12.setBackground(new Color(0, 0, 255));
 		btnNewButton_12.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_12.setBounds(456, 235, 187, 34);
+		btnNewButton_12.setBounds(456, 168, 187, 34);
 		panel_4.add(btnNewButton_12);
 		
 		JLabel lblNewLabel_11_1_2 = new JLabel("New label");
@@ -554,65 +536,55 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_4.setBounds(391, 51, 182, 33);
 		panel_5.add(comboBox_4);
 		
-		JLabel lblNewLabel_9_1_4 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_4.setBounds(391, 101, 341, 13);
-		panel_5.add(lblNewLabel_9_1_4);
-		
-		JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_6.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_6.setBounds(391, 120, 155, 33);
-		panel_5.add(rdbtnNewRadioButton_6);
-		
-		JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_7.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_7.setBounds(556, 120, 155, 33);
-		panel_5.add(rdbtnNewRadioButton_7);
-		
 		JLabel lblNewLabel_10_5 = new JLabel("Digite una fecha");
 		lblNewLabel_10_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_5.setBounds(391, 159, 203, 24);
+		lblNewLabel_10_5.setBounds(391, 82, 203, 24);
 		panel_5.add(lblNewLabel_10_5);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(391, 193, 182, 26);
+		textField_3.setBounds(391, 116, 234, 44);
 		panel_5.add(textField_3);
 		textField_3.setColumns(10);
 		
 		
 		JButton btnNewButton_13 = new JButton("Consultar");
 		btnNewButton_13.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_3.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			}
 		});
 		btnNewButton_13.setBackground(new Color(0, 0, 255));
 		btnNewButton_13.setForeground(new Color(255, 255, 255));
 		btnNewButton_13.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_13.setBounds(391, 229, 182, 41);
+		btnNewButton_13.setBounds(391, 189, 182, 41);
 		panel_5.add(btnNewButton_13);
 		
 		JLabel lblNewLabel_11_1_3 = new JLabel("New label");
@@ -646,28 +618,13 @@ public class ClimaProvinciaUI extends JFrame {
 		comboBox_3.setBounds(336, 46, 187, 31);
 		panel_6.add(comboBox_3);
 		
-		JLabel lblNewLabel_9_1_5 = new JLabel("Periodo en que desea conocer el clima");
-		lblNewLabel_9_1_5.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_9_1_5.setBounds(333, 94, 341, 13);
-		panel_6.add(lblNewLabel_9_1_5);
-		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Dia");
-		rdbtnNewRadioButton_4.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_4.setBounds(334, 125, 158, 31);
-		panel_6.add(rdbtnNewRadioButton_4);
-		
-		JRadioButton rdbtnNewRadioButton_5 = new JRadioButton("Noche");
-		rdbtnNewRadioButton_5.setFont(new Font("Arial", Font.PLAIN, 13));
-		rdbtnNewRadioButton_5.setBounds(508, 125, 145, 31);
-		panel_6.add(rdbtnNewRadioButton_5);
-		
 		JLabel lblNewLabel_10_6 = new JLabel("Digite una fecha");
 		lblNewLabel_10_6.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_6.setBounds(331, 162, 203, 22);
+		lblNewLabel_10_6.setBounds(336, 87, 203, 22);
 		panel_6.add(lblNewLabel_10_6);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(334, 204, 158, 31);
+		textField_2.setBounds(336, 131, 158, 31);
 		panel_6.add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -678,50 +635,64 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JButton btnNewButton_14 = new JButton("Consultar");
 		btnNewButton_14.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 // Paso 1: Obtiene la fecha ingresada por el usuario
-			    String fechaIngresada = fecha.getText();
-			    
+			
+			
+			
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
 			    // Paso 2: Crea una instancia de la clase validarFecha
 			    validarFecha validador = new validarFecha(fechaIngresada);
-			    
+
 			    // Paso 3: Verifica si la fecha ingresada es válida
 			    boolean esFechaValida = validador.validarFecha();
-			    
+
 			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
 			    // en función de si la fecha es válida o no
 			    if (esFechaValida) {
-			        // La fecha es válida, no se realiza ninguna acción adicional,
-			        // pero puedes agregar un mensaje de éxito si lo deseas
+			        // La fecha es válida, muestra un mensaje de éxito
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha invalida");
-
-
-			        
-			        // Opcional: Limpia el campo de entrada de fecha si es necesario
-			        fecha.setText("");
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
 			    }
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_2.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
 			}
 		});
 		btnNewButton_14.setBackground(new Color(0, 0, 255));
 		btnNewButton_14.setForeground(new Color(255, 255, 255));
 		btnNewButton_14.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		btnNewButton_14.setBounds(334, 341, 158, 38);
+		btnNewButton_14.setBounds(524, 125, 158, 38);
 		panel_6.add(btnNewButton_14);
-		
-		JLabel lblNewLabel_10_6_1 = new JLabel("Consultar fenomeno natural");
-		lblNewLabel_10_6_1.setFont(new Font("Arial Black", Font.PLAIN, 15));
-		lblNewLabel_10_6_1.setBounds(336, 247, 334, 22);
-		panel_6.add(lblNewLabel_10_6_1);
-		
-		JComboBox comboBox_7 = new JComboBox();
-		comboBox_7.setBackground(new Color(255, 255, 255));
-		comboBox_7.setModel(new DefaultComboBoxModel(new String[] {"Onda Tropical", "Tormenta Tropical", "Depresion Tropical", "Huracan Cat 1", "Huracan Cat 2", "Huracan Cat 3", "Huracan Cat 4", "Huracan Cat 5", "Tromba"}));
-		comboBox_7.setToolTipText("");
-		comboBox_7.setBounds(336, 279, 234, 38);
-		panel_6.add(comboBox_7);
 		
 		JLabel lblNewLabel_4 = new JLabel("Limón");
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 17));

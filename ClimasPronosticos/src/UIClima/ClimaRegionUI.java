@@ -1,5 +1,8 @@
 package UIClima;
 import Clima.ClimaRegion;
+import Clima.LeerJSONRegiones;
+import Clima.Region;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,14 +13,21 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.net.URISyntaxException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import UIClima.validarFecha;
 
 public class ClimaRegionUI extends JFrame {
     //una ventana para consultar el clima por fecha y por area
@@ -33,7 +43,10 @@ public class ClimaRegionUI extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField fecha;
+
 	private final Action action = new SwingAction();
+	
 
 	/**
 	 * Launch the application.
@@ -43,7 +56,11 @@ public class ClimaRegionUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	
 	public ClimaRegionUI() {
+		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 901, 622);
 		contentPane = new JPanel();
@@ -98,13 +115,52 @@ public class ClimaRegionUI extends JFrame {
 		textField_6.setBounds(376, 169, 180, 26);
 		panel.add(textField_6);
 		textField_6.setColumns(10);
-		
+	
 		JButton btnNewButton_8 = new JButton("Consultar");
 		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+			// Método para mostrar los datos del Pacífico Norte
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
 			}
+			
+		
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_6.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+				
+			    }
+			
+			
+			
+			
+			
 		});
+		
+	
+		
 		btnNewButton_8.setAction(action);
 		btnNewButton_8.setForeground(new Color(255, 255, 255));
 		btnNewButton_8.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -138,6 +194,37 @@ public class ClimaRegionUI extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton_9 = new JButton("Consultar");
+		btnNewButton_9.addActionListener(new ActionListener() {
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_1.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+			}
+		});
 		btnNewButton_9.setBackground(new Color(0, 0, 255));
 		btnNewButton_9.setForeground(new Color(255, 255, 255));
 		btnNewButton_9.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -170,6 +257,39 @@ public class ClimaRegionUI extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton_10 = new JButton("Consultar");
+		btnNewButton_10.addActionListener(new ActionListener() {
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_2.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+			}
+		});
 		btnNewButton_10.setForeground(new Color(255, 255, 255));
 		btnNewButton_10.setBackground(new Color(0, 0, 255));
 		btnNewButton_10.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -202,6 +322,38 @@ public class ClimaRegionUI extends JFrame {
 		textField_3.setColumns(10);
 		
 		JButton btnNewButton_11 = new JButton("Consultar");
+		btnNewButton_11.addActionListener(new ActionListener() {
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_3.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+			}
+		});
 		btnNewButton_11.setForeground(new Color(255, 255, 255));
 		btnNewButton_11.setBackground(new Color(0, 0, 255));
 		btnNewButton_11.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -234,6 +386,46 @@ public class ClimaRegionUI extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton_12 = new JButton("Consultar");
+		btnNewButton_12.addActionListener(new ActionListener() {
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+			
+			
+			
+			
+			
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_4.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+			}
+		});
 		btnNewButton_12.setBackground(new Color(0, 0, 255));
 		btnNewButton_12.setForeground(new Color(255, 255, 255));
 		btnNewButton_12.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -266,6 +458,40 @@ public class ClimaRegionUI extends JFrame {
 		textField_5.setColumns(10);
 		
 		JButton btnNewButton_13 = new JButton("Consultar");
+		btnNewButton_13.addActionListener(new ActionListener() {
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+			
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField_5.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+			}
+		});
 		btnNewButton_13.setForeground(new Color(255, 255, 255));
 		btnNewButton_13.setBackground(new Color(0, 0, 255));
 		btnNewButton_13.setFont(new Font("Arial Black", Font.PLAIN, 15));
@@ -298,13 +524,52 @@ public class ClimaRegionUI extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton_14 = new JButton("Consultar");
+		btnNewButton_14.addActionListener(new ActionListener() {
+			
+			
+			private void validarYMostrarFechaIngresada(String fechaIngresada) {
+				 // Paso 1: Verifica si la fecha ingresada está vacía
+			    if (fechaIngresada.isEmpty()) {
+			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			        return; // Sale del método si no se ingresó una fecha
+			    }
+
+			    // Paso 2: Crea una instancia de la clase validarFecha
+			    validarFecha validador = new validarFecha(fechaIngresada);
+
+			    // Paso 3: Verifica si la fecha ingresada es válida
+			    boolean esFechaValida = validador.validarFecha();
+
+			    // Paso 4: Puedes usar la variable esFechaValida para realizar acciones
+			    // en función de si la fecha es válida o no
+			    if (esFechaValida) {
+			        // La fecha es válida, muestra un mensaje de éxito
+			        JOptionPane.showMessageDialog(null, "Fecha válida.");
+			    } else {
+			        // La fecha no es válida, muestra un mensaje de error
+			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    }
+			}
+		
+			public void actionPerformed(ActionEvent e) {
+				String fechaIngresada = textField.getText();
+
+			    // Llama al método para validar y mostrar la fecha
+			    validarYMostrarFechaIngresada(fechaIngresada);
+				
+			}
+		});
 		btnNewButton_14.setForeground(new Color(255, 255, 255));
 		btnNewButton_14.setBackground(new Color(0, 0, 255));
 		btnNewButton_14.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_14.setBounds(528, 136, 137, 69);
 		panel_6.add(btnNewButton_14);
 	}
-	 private void regresarAVentanaPrincipal() {
+	 protected void validarYMostrarFecha() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void regresarAVentanaPrincipal() {
 	        
 	        dispose();
 	    }
