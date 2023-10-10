@@ -145,7 +145,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			    	JOptionPane.showMessageDialog(null, "Error Humano tonto, que necio Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
+			    	JOptionPane.showMessageDialog(null, "Error, La Fecha es inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
