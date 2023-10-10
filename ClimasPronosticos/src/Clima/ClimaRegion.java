@@ -1,6 +1,7 @@
 package Clima;
 
 public class ClimaRegion {
+	//Declaracion de las variables climaticas para clima provincias
 	private String condClima;
 	private int temnMaxima;
 	private int tempMininima;
@@ -29,6 +30,7 @@ public class ClimaRegion {
 		
 		
 	}
+	//Getters de los datos climaticos
 
 	public String getCondClima() {
 		return condClima;

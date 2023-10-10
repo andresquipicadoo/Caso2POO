@@ -8,6 +8,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -123,7 +128,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -140,7 +145,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error Humano tonto, que necio Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -149,8 +154,8 @@ public class ClimaRegionUI extends JFrame {
 				String fechaIngresada = textField_6.getText();
 
 			    // Llama al método para validar y mostrar la fecha
-			    validarYMostrarFechaIngresada(fechaIngresada);
-				
+			      validarYMostrarFechaIngresada(fechaIngresada);
+			     
 			    }
 			
 			
@@ -198,7 +203,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -215,7 +220,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			public void actionPerformed(ActionEvent e) {
@@ -261,7 +266,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -278,7 +283,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -326,7 +331,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -343,7 +348,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -392,7 +397,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -409,7 +414,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -464,7 +469,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -481,7 +486,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -530,7 +535,7 @@ public class ClimaRegionUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -547,7 +552,7 @@ public class ClimaRegionUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 		

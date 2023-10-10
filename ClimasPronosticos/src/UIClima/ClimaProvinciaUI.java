@@ -7,6 +7,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -105,7 +110,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -122,7 +127,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			public void actionPerformed(ActionEvent e) {
@@ -195,7 +200,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -212,7 +217,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			public void actionPerformed(ActionEvent e) {
@@ -282,7 +287,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -299,7 +304,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -374,7 +379,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -391,7 +396,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -458,7 +463,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -475,7 +480,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
@@ -549,11 +554,63 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JButton btnNewButton_13 = new JButton("Consultar");
 		btnNewButton_13.addActionListener(new ActionListener() {
-			
+			private void mostrarDatosClimaticos(String fecha) {
+			    // TODO: Debes implementar la lógica para mostrar los datos climáticos
+			    // basados en la fecha proporcionada (fecha).
+
+			    // Asumiendo que tienes el JSON de datos climáticos en una variable llamada "datosClimaticosJSON":
+			    String datosClimaticosJSON = "Tu JSON de datos climáticos aquí";
+
+			    // Analizar el JSON (puedes usar una librería como JSON-Java)
+			    try {
+			        // Supongamos que tienes una lista de regiones en el JSON bajo la clave "regiones"
+			        JSONArray regionesArray = new JSONArray(datosClimaticosJSON);
+
+			        // Iterar sobre las regiones para encontrar el Pacífico Norte
+			        for (int i = 0; i < regionesArray.length(); i++) {
+			            JSONObject regionObj = regionesArray.getJSONObject(i);
+
+			            // Verificar si la región actual es el Pacífico Norte
+			            if (regionObj.getString("nombre").equals("Pacifico Norte")) {
+			                // Mostrar los datos climáticos para el Pacífico Norte
+			                JSONObject climaObj = regionObj.getJSONObject("clima");
+			                String condicionClima = climaObj.getString("condicion");
+			                int tempMaxima = climaObj.getInt("temperaturaMaxima");
+			                int tempMinima = climaObj.getInt("temperaturaMinima");
+			                int precipitacion = climaObj.getInt("precipitacion");
+			                int humedad = climaObj.getInt("humedad");
+			                String viento = climaObj.getString("viento");
+			                String presionAtmosferica = climaObj.getString("presionAtmosferica");
+			                String indiceUV = climaObj.getString("IndiceUV");
+
+			                // Mostrar los datos climáticos para el Pacífico Norte
+			                String mensaje = "Datos climáticos para el Pacífico Norte el " + fecha + ":\n" +
+			                        "Condición climática: " + condicionClima + "\n" +
+			                        "Temperatura Máxima: " + tempMaxima + "°C\n" +
+			                        "Temperatura Mínima: " + tempMinima + "°C\n" +
+			                        "Precipitación: " + precipitacion + " mm\n" +
+			                        "Humedad: " + humedad + "%\n" +
+			                        "Viento: " + viento + "\n" +
+			                        "Presión Atmosférica: " + presionAtmosferica + "\n" +
+			                        "Índice UV: " + indiceUV;
+
+			                JOptionPane.showMessageDialog(null, mensaje, "Datos Climáticos - Pacífico Norte", JOptionPane.INFORMATION_MESSAGE);
+			                return; // Salir de la función después de mostrar los datos del Pacífico Norte
+			            }
+			        }
+
+			        // Si no se encontraron datos para el Pacífico Norte
+			        JOptionPane.showMessageDialog(null, "No se encontraron datos climáticos para el Pacífico Norte en la fecha " + fecha, "Advertencia", JOptionPane.WARNING_MESSAGE);
+			    } catch (JSONException e) {
+			        e.printStackTrace();
+			        // Manejar excepciones en caso de problemas con el JSON
+			        JOptionPane.showMessageDialog(null, "Error al procesar los datos climáticos.", "Error", JOptionPane.ERROR_MESSAGE);
+			    }
+			}
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -570,15 +627,17 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			
 			public void actionPerformed(ActionEvent e) {
 				String fechaIngresada = textField_3.getText();
+				String fecha = textField_3.getText();
 
 			    // Llama al método para validar y mostrar la fecha
 			    validarYMostrarFechaIngresada(fechaIngresada);
+			    mostrarDatosClimaticos(fecha);
 			}
 		});
 		btnNewButton_13.setBackground(new Color(0, 0, 255));
@@ -643,7 +702,7 @@ public class ClimaProvinciaUI extends JFrame {
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				 // Paso 1: Verifica si la fecha ingresada está vacía
 			    if (fechaIngresada.isEmpty()) {
-			        JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.");
+			    	JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 			        return; // Sale del método si no se ingresó una fecha
 			    }
 
@@ -660,7 +719,7 @@ public class ClimaProvinciaUI extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Fecha válida.");
 			    } else {
 			        // La fecha no es válida, muestra un mensaje de error
-			        JOptionPane.showMessageDialog(null, "Error, Fecha inválida.");
+			    	JOptionPane.showMessageDialog(null, "Error, Fecha inválida.", "Error", JOptionPane.ERROR_MESSAGE);
 			    }
 			}
 			

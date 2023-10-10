@@ -6,7 +6,7 @@ public class Provincia {
     public Provincia(String nombre) {
         this.nombre = nombre;
     }
-
+    //Devuelve el nombre de la provincia;
     public String getNombre() {
         return nombre;
     } 

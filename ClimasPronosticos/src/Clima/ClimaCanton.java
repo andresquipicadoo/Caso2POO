@@ -1,6 +1,7 @@
 package Clima;
 
 public class ClimaCanton {
+	//Declaracion de las variables
 	private String condClima;
 	private int temnMaxima;
 	private int tempMininima;
@@ -24,6 +25,7 @@ public class ClimaCanton {
 		this.tempMininima=tempMininima;
 		this.canton=canton;
 	}
+	//Getters de los datos climaticos
 
 	public String getCondClima() {
 		return condClima;
