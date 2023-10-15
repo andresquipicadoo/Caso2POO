@@ -1,13 +1,17 @@
-package Clima;
+package controller;
 
 import java.util.List;
+
+import Clima.ClimaCanton;
+import Clima.Region;
+
 import java.util.ArrayList;
 
-public class ClimaManager {
+public class ClimaController {
 	private List<ClimaCanton> cantones;
 	private List<Region> regiones;
 
-	public ClimaManager() {
+	public ClimaController() {
 		// Inicializa las listas de cantones y regiones
 		cantones = new ArrayList<>();
 		regiones = new ArrayList<>();

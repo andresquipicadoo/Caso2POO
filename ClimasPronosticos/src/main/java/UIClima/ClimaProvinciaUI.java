@@ -79,7 +79,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		lblNewLabel_3.setBackground(Color.LIGHT_GRAY);
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\650px-Provincias_de_San_José__Costa_Rica_Mapa__1_-removebg-preview.png"));
+		lblNewLabel_3.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/sanjose.png")));
 		lblNewLabel_3.setBounds(10, 53, 384, 366);
 		panel.add(lblNewLabel_3);
 		
@@ -100,7 +100,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("New label");
-		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11.setBounds(764, 10, 117, 87);
 		panel.add(lblNewLabel_11);
 		
@@ -163,7 +163,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		lblNewLabel_2.setBackground(new Color(51, 204, 255));
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\425px-Provincias_de_Alajuela__Costa_Rica_Mapa_1_-removebg-preview.png"));
+		lblNewLabel_2.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/alajuela.png")));
 		lblNewLabel_2.setBounds(26, 46, 360, 366);
 		panel_1.add(lblNewLabel_2);
 		
@@ -188,7 +188,7 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_11_1 = new JLabel("New label");
-		lblNewLabel_11_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_1.setBounds(734, 10, 116, 87);
 		panel_1.add(lblNewLabel_11_1);
 		
@@ -252,7 +252,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_2.setLayout(null);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("New label");
-		lblNewLabel_3_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\500px-Provincias_de_Cartago__Costa_Rica_Mapa_2_-removebg-preview.png"));
+		lblNewLabel_3_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/cartago.png")));
 		lblNewLabel_3_1.setBackground(Color.LIGHT_GRAY);
 		lblNewLabel_3_1.setBounds(13, 46, 364, 366);
 		panel_2.add(lblNewLabel_3_1);
@@ -328,7 +328,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_2.add(btnNewButton_4);
 		
 		JLabel lblNewLabel_11_1_1 = new JLabel("New label");
-		lblNewLabel_11_1_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_1_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_1_1.setBounds(776, 10, 116, 87);
 		panel_2.add(lblNewLabel_11_1_1);
 		
@@ -343,7 +343,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\320px-Provincias_de_Heredia__Costa_Rica_Mapa__1_-removebg-preview.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/heredia.png")));
 		lblNewLabel_1.setBounds(22, 49, 211, 381);
 		panel_3.add(lblNewLabel_1);
 		
@@ -369,7 +369,7 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_5.setColumns(10);
 		
 		JLabel lblNewLabel_11_3 = new JLabel("New label");
-		lblNewLabel_11_3.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_3.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_3.setBounds(745, 10, 116, 87);
 		panel_3.add(lblNewLabel_11_3);
 		
@@ -431,7 +431,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("New label");
 		lblNewLabel_5.setBackground(new Color(102, 204, 255));
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\550px-Provincias_de_Puntarenas__Costa_Rica_Mapa_1_-removebg-preview.png"));
+		lblNewLabel_5.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/puntarenas.png")));
 		lblNewLabel_5.setBounds(10, 58, 398, 381);
 		panel_4.add(lblNewLabel_5);
 		
@@ -511,7 +511,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_4.add(btnNewButton_12);
 		
 		JLabel lblNewLabel_11_1_2 = new JLabel("New label");
-		lblNewLabel_11_1_2.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_1_2.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_1_2.setBounds(776, -9, 116, 87);
 		panel_4.add(lblNewLabel_11_1_2);
 		
@@ -526,7 +526,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_5.setLayout(null);
 		
 		JLabel lblNewLabel_6 = new JLabel("New label");
-		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\450px-Provincias_de_Guanacaste__Costa_Rica_Mapa_1_-removebg-preview.png"));
+		lblNewLabel_6.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/guanacaste.png")));
 		lblNewLabel_6.setBounds(10, 51, 334, 391);
 		panel_5.add(lblNewLabel_6);
 		
@@ -647,7 +647,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_5.add(btnNewButton_13);
 		
 		JLabel lblNewLabel_11_1_3 = new JLabel("New label");
-		lblNewLabel_11_1_3.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_1_3.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_1_3.setBounds(776, 10, 116, 87);
 		panel_5.add(lblNewLabel_11_1_3);
 		
@@ -662,7 +662,7 @@ public class ClimaProvinciaUI extends JFrame {
 		panel_6.setLayout(null);
 		
 		JLabel lblNewLabel_7 = new JLabel("New label");
-		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\450px-Provincias_de_Limón__Costa_Rica_Mapa_1_-removebg-preview.png"));
+		lblNewLabel_7.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/limon.png")));
 		lblNewLabel_7.setBounds(10, 40, 302, 391);
 		panel_6.add(lblNewLabel_7);
 		
@@ -688,7 +688,7 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_11_6 = new JLabel("New label");
-		lblNewLabel_11_6.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\sunny_sun_cloud_weather_cloudy_icon_194237(1).png"));
+		lblNewLabel_11_6.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_6.setBounds(745, 18, 115, 87);
 		panel_6.add(lblNewLabel_11_6);
 		

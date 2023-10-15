@@ -107,7 +107,7 @@ public class ClimaRegionUI extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\north-pacific-es-438c447be0142088daa7238057c05887ba35bcc1042e05864a8782fc49dca4ed(1).jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-pacifico-norte.jpg")));
 		lblNewLabel_2.setBounds(20, 55, 323, 362);
 		panel.add(lblNewLabel_2);
 		
@@ -184,7 +184,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_2.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("New label");
-		lblNewLabel_2_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\central-pacific-es-2117eb60b49aa70b9042d2dd8cee44558be07be107366c337fb8d9d8ca2378d8(1).jpg"));
+		lblNewLabel_2_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-pacifico-central.jpg")));
 		lblNewLabel_2_1.setBounds(10, 48, 323, 362);
 		panel_2.add(lblNewLabel_2_1);
 		
@@ -247,7 +247,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_3.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("New label");
-		lblNewLabel_2_2.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\south-es-25a2ec95566d3a8218bac3a22623384a9cb796f7b8166b4bb57133893263d737(1).jpg"));
+		lblNewLabel_2_2.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-pacifico-sur.jpg")));
 		lblNewLabel_2_2.setBounds(10, 49, 323, 362);
 		panel_3.add(lblNewLabel_2_2);
 		
@@ -312,7 +312,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_1.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_2_2_1 = new JLabel("New label");
-		lblNewLabel_2_2_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\north-es-9662b67f690fbeb2281d3ccd2afb53ab2e265dfe5be3bfab084d2906878bfe2c(1).jpg"));
+		lblNewLabel_2_2_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-zona-norte.jpg")));
 		lblNewLabel_2_2_1.setBounds(10, 51, 323, 362);
 		panel_1.add(lblNewLabel_2_2_1);
 		
@@ -376,7 +376,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_4.add(lblNewLabel_1_1_2);
 		
 		JLabel lblNewLabel_2_2_1_1 = new JLabel("New label");
-		lblNewLabel_2_2_1_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\central-valley(1).jpg"));
+		lblNewLabel_2_2_1_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-valle-central.jpg")));
 		lblNewLabel_2_2_1_1.setBounds(10, 54, 323, 362);
 		panel_4.add(lblNewLabel_2_2_1_1);
 		
@@ -448,7 +448,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_5.add(lblNewLabel_1_1_2_1);
 		
 		JLabel lblNewLabel_2_2_1_1_1 = new JLabel("New label");
-		lblNewLabel_2_2_1_1_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\caribbean-es-78570a1469d957353d6282abe0ecb1fa2fa77ce636ece0dfe5d08d9780d8d452(1).jpg"));
+		lblNewLabel_2_2_1_1_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-caribe.jpg")));
 		lblNewLabel_2_2_1_1_1.setBounds(10, 45, 323, 362);
 		panel_5.add(lblNewLabel_2_2_1_1_1);
 		
@@ -514,7 +514,7 @@ public class ClimaRegionUI extends JFrame {
 		panel_6.add(lblNewLabel_1_1_2_2);
 		
 		JLabel lblNewLabel_2_2_1_1_2 = new JLabel("New label");
-		lblNewLabel_2_2_1_1_2.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\caribbean-es-78570a1469d957353d6282abe0ecb1fa2fa77ce636ece0dfe5d08d9780d8d452(1).jpg"));
+		lblNewLabel_2_2_1_1_2.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/region-caribe.jpg")));
 		lblNewLabel_2_2_1_1_2.setBounds(10, 44, 323, 362);
 		panel_6.add(lblNewLabel_2_2_1_1_2);
 		
