@@ -1,68 +1,61 @@
 package controller;
 
-import java.util.List;
+import java.awt.EventQueue;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import Clima.ClimaCanton;
-import Clima.Region;
 import UIClima.MenuPrincipal;
 
-import java.util.ArrayList;
-
 public class ClimaController {
-	private List<ClimaCanton> cantones;
-	private List<Region> regiones;
-	private MenuPrincipal menuPrincipal;
+	private Path rutaBase;
 	
-	ClimaController(MenuPrincipal principal) {
-		this.menuPrincipal = principal;
+	public ClimaController(Path rutaBase) {
+		this.rutaBase = rutaBase;
 	}
-
-	public ClimaController() {
-		// Inicializa las listas de cantones y regiones
-		cantones = new ArrayList<>();
-		regiones = new ArrayList<>();
-	}
-
-	// Método para agregar cantones a la lista de cantones
-	public void agregarCanton(ClimaCanton canton) {
-		cantones.add(canton);
-	}
-
-	// Método para agregar regiones a la lista de regiones
-	public void agregarRegion(Region region) {
-		regiones.add(region);
-	}
-
-	// Método para mostrar la información de los cantones y su clima
-	public void mostrarInformacionCantones() {
-		// Itera sobre la lista de cantones y muestra información
-		for (ClimaCanton climaCanton : cantones) {
-			System.out.println("Nombre del cantón: " + climaCanton.getCanton().getNombreCanton());
-			System.out.println("Provincia: " + climaCanton.getCanton().getProvincia().getNombre());
-
-
-			System.out.println("-----------------------------------");
+	
+	public static boolean esRutaValida(String ruta) {
+		try {
+			Paths.get(ruta);
+			return true;
+		}
+		catch (java.nio.file.InvalidPathException ex) {
+			return false;
 		}
 	}
-
-	private void mostrarInformacionClima(ClimaCanton clima) {
-		// TODO Auto-generated method stub
-
-	}
-
-	// Método para mostrar la información de las regiones y su clima
-	public void mostrarInformacionRegiones() {
-		// Itera sobre la lista de regiones y muestra información
-		for (Region region : regiones) {
-			System.out.println("Nombre de la región: " + region.getNombre());
-
-
-			System.out.println("-----------------------------------");
-		}
+	
+	public void iniciar() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MenuPrincipal frame = new MenuPrincipal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
 	}
 	
 	public static void main(String[] args) {
-		
+		System.out.println("Pronosticos de Clima v1.0");
+		System.out.println("(c) 2023, Andres Quiros P.");
+		ClimaController controller = null;
+		if (args.length > 0) {
+			String ruta = args[0];
+			System.out.println(String.format("Tratando de ubicar ruta para archivos con argumento: %s", ruta));
+			if (esRutaValida(ruta)) {
+				System.out.println(String.format("Ruta %s existe. Se usará para tratar de cargar archivos ...", ruta));
+				controller = new ClimaController(Paths.get(ruta));
+			}
+			else {
+				System.out.println(String.format("Ruta %s no existe.", ruta));
+			}			
+		}
+		if (controller == null) {
+			System.out.println(String.format("Se usará %s para tratar de cargar archivos ...", Paths.get(".").normalize().toString()));
+			controller = new ClimaController(Paths.get("."));
+		}
+		controller.iniciar();
 	}
-
 }
