@@ -4,12 +4,18 @@ import java.util.List;
 
 import Clima.ClimaCanton;
 import Clima.Region;
+import UIClima.MenuPrincipal;
 
 import java.util.ArrayList;
 
 public class ClimaController {
 	private List<ClimaCanton> cantones;
 	private List<Region> regiones;
+	private MenuPrincipal menuPrincipal;
+	
+	ClimaController(MenuPrincipal principal) {
+		this.menuPrincipal = principal;
+	}
 
 	public ClimaController() {
 		// Inicializa las listas de cantones y regiones
@@ -53,6 +59,10 @@ public class ClimaController {
 
 			System.out.println("-----------------------------------");
 		}
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 }
