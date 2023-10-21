@@ -5,8 +5,13 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,7 +27,7 @@ public class Archivos {
 	private static final String archivoCantones = "ClimaCantones.json"; 
 	private static final String archivoRegiones = "ClimaRegiones.json";
 	
-	public static List<ClimaCanton>leerArchivoCantones(Path rutaBase) throws URISyntaxException {
+	public static Map<String, Provincia> leerArchivoCantones(Path rutaBase) throws URISyntaxException {
 		Path rutaArchivo = rutaBase.resolve(archivoCantones);
 		File f = rutaArchivo.toFile();
 		URI uri = null;
@@ -36,7 +41,7 @@ public class Archivos {
 		return leerJsonCantones(uri);
 	}
 	
-	public static List<ClimaRegion>leerArchivoRegiones(Path rutaBase) throws URISyntaxException {
+	public static Map<String, Region> leerArchivoRegiones(Path rutaBase) throws URISyntaxException {
 		Path rutaArchivo = rutaBase.resolve(archivoRegiones);
 		File f = rutaArchivo.toFile();
 		URI uri = null;
@@ -51,9 +56,9 @@ public class Archivos {
 	}
 
 	
-	public static List<ClimaCanton> leerJsonCantones(URI uri) {
-	    List<ClimaCanton> cantones = new ArrayList<>();
-
+	public static Map<String, Provincia> leerJsonCantones(URI uri) {
+	    Map<String, Provincia> provincias = new HashMap<>();
+	   
 	    try {
 	        // Lee el contenido del archivo JSON
 	    	JSONTokener tokener = new JSONTokener(uri.toURL().openStream());
@@ -66,48 +71,68 @@ public class Archivos {
 
 	        // Itera sobre cada elemento del arreglo de cantones
 	        for (int i = 0; i < cantonesArray.length(); i++) {
+	        	// obtener los objetos que contienen los datos principales
 	            JSONObject cantonObject = cantonesArray.getJSONObject(i);
-
-	            // Procesa los datos del cantón
-	            String nombreCanton = cantonObject.getString("nombre");
-	            String nombreProvincia = cantonObject.getString("provincia");
-
 	            // Obtiene el objeto de clima
 	            JSONObject climaObject = cantonObject.getJSONObject("clima");
-	            String condicionClima = climaObject.getString("condicion");
-	            int temperaturaMaxima = climaObject.getInt("temperaturaMaxima");
-	            int temperaturaMinima = climaObject.getInt("temperaturaMinima");
-	            int precipitacion = climaObject.getInt("precipitacion");
-	            int humedad = climaObject.getInt("humedad");
-	            String viento = climaObject.getString("viento");
-	            String presionAtmosferica = climaObject.getString("presionAtmosferica");
-	            String porcentajeUV = climaObject.getString("IndiceUV");
 
-	            // Obtiene otros datos como fase lunar y fecha
-	            String faseLunar = cantonObject.getString("faseLunar");
-	            String fecha = cantonObject.getString("fecha");
-	            
+	            // Procesa los datos de provincia y canton
+	            String nombreProvincia = cantonObject.getString("provincia");
+	            String nombreCanton = cantonObject.getString("nombre");
 	            // crear objeto provincia
 	            Provincia provincia = new Provincia(nombreProvincia);
-	            
-	            // crear objeto canton
+	            // crear objeto cantón
 	            Canton canton = new Canton(provincia, nombreCanton);
-
-	            // Crea un objeto Canton con todos los datos y agrégalo a la lista
-	            ClimaCanton climaCanton = new ClimaCanton(condicionClima,temperaturaMaxima,temperaturaMinima, humedad,precipitacion,viento,faseLunar,porcentajeUV, canton);
-	            cantones.add(climaCanton);
-	           
+	            // agregar objeto provincia al mapa que se va a retornar
+	            provincias.put(nombreProvincia, provincia);
+	            // fecha del dato de clima
+	            String fechaString = cantonObject.getString("fecha");
+	            Date fecha = null;
+	            try {
+	            	fecha = procesarFecha(fechaString);
+	            }
+	            catch (ParseException pe) {
+	            	System.out.println(String.format("Error procesando fecha %s, no se agregará el dato correspondiente para cantón %s, provincia %s.", fechaString, nombreCanton, nombreProvincia));
+	            }
+	            if (fecha != null) {
+		            String condicionClima = climaObject.getString("condicion");
+		            int temperaturaMaxima = climaObject.getInt("temperaturaMaxima");
+		            int temperaturaMinima = climaObject.getInt("temperaturaMinima");
+		            int precipitacion = climaObject.getInt("precipitacion");
+		            int humedad = climaObject.getInt("humedad");
+		            String viento = climaObject.getString("viento");
+		            String presionAtmosferica = climaObject.getString("presionAtmosferica");
+		            String porcentajeUV = climaObject.getString("IndiceUV");
+	
+		            // Obtiene otros datos como fase lunar y fecha
+		            String faseLunar = cantonObject.getString("faseLunar");
+		           
+		            // Crea un objeto ClimaCanton con todos los datos del clima para el canton
+		            ClimaCanton climaCanton = new ClimaCanton(condicionClima,temperaturaMaxima,temperaturaMinima, humedad,precipitacion,viento,faseLunar,porcentajeUV, canton);
+		            // se agrega el dato de clima al cantón para la fecha indicada
+		            canton.agregarDatoClima(fecha, climaCanton);
+		            // agregar canton a provincia
+		            provincia.agregarCanton(canton);
+	            }
 	        }
 
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
 
-	    return cantones;
+	    return provincias;
 	}
 	
-	public static List<ClimaRegion> leerJsonRegiones(URI uri) {
-		List<ClimaRegion> regiones = new ArrayList<>();
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	private static Date procesarFecha(String fechaString) throws ParseException {
+		// convierte la fecha de string a Date, para mejor manipulación
+		// supone un formato de DD/MM/YYYY
+		return sdf.parse(fechaString);
+	}
+
+	public static Map<String, Region> leerJsonRegiones(URI uri) {
+		Map<String, Region> regiones = new HashMap<>();
 
 		try {
 	        // Lee el contenido del archivo JSON
@@ -127,24 +152,36 @@ public class Archivos {
 
 				// Extrae los datos de la región
 				String nombreRegion = jsonRegion.getString("nombre");
-				JSONObject jsonClima = jsonRegion.getJSONObject("clima");
-				String condicionClima = jsonClima.getString("condicion");
-				int temperaturaMaxima = jsonClima.getInt("temperaturaMaxima");
-				int temperaturaMinima = jsonClima.getInt("temperaturaMinima");
-				int precipitacion = jsonClima.getInt("precipitacion");
-				int humedad = jsonClima.getInt("humedad");
-				String viento = jsonClima.getString("viento");
-				String presionAtmosferica = jsonClima.getString("presionAtmosferica");
-				String porcentajeUV = jsonClima.getString("IndiceUV");
-				String faseLunar = jsonRegion.getString("faseLunar");
-				String fecha = jsonRegion.getString("fecha");
-				
 				// Crea objeto region
 				Region region = new Region(nombreRegion);
+				// procesar la fecha del dato de clima
+				String fechaString = jsonRegion.getString("fecha");
+	            Date fecha = null;
+	            try {
+	            	fecha = procesarFecha(fechaString);
+	            }
+	            catch (ParseException pe) {
+	            	System.out.println(String.format("Error procesando fecha %s, no se agregará el dato correspondiente para región %s", fechaString, nombreRegion));
+	            }
+	            if (fecha != null) {
+					JSONObject jsonClima = jsonRegion.getJSONObject("clima");
+					String condicionClima = jsonClima.getString("condicion");
+					int temperaturaMaxima = jsonClima.getInt("temperaturaMaxima");
+					int temperaturaMinima = jsonClima.getInt("temperaturaMinima");
+					int precipitacion = jsonClima.getInt("precipitacion");
+					int humedad = jsonClima.getInt("humedad");
+					String viento = jsonClima.getString("viento");
+					String presionAtmosferica = jsonClima.getString("presionAtmosferica");
+					String porcentajeUV = jsonClima.getString("IndiceUV");
+					String faseLunar = jsonRegion.getString("faseLunar");
+					
 
-				ClimaRegion climaRegion = new ClimaRegion(condicionClima, temperaturaMaxima, temperaturaMinima, humedad,
-						precipitacion, viento, faseLunar, porcentajeUV, region);
-				regiones.add(climaRegion);
+					ClimaRegion climaRegion = new ClimaRegion(condicionClima, temperaturaMaxima, temperaturaMinima, humedad,
+							precipitacion, viento, faseLunar, porcentajeUV, region);
+					region.agregarDatoClima(fecha, climaRegion);
+					regiones.put(nombreRegion, region);
+	            }
+
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

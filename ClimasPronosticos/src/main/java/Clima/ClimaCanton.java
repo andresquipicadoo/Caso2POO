@@ -13,7 +13,6 @@ public class ClimaCanton {
 	private Canton canton;
 	
 	public ClimaCanton(String condClima, int temnMaxima,int tempMininima,int humedad,int lluvia,String viento,String faseLunar,String porcentajeIndiceUV,Canton canton) {
-		
 		this.condClima=condClima;
 		this.faseLunar=faseLunar;
 		this.setLluvia(lluvia);
@@ -25,6 +24,7 @@ public class ClimaCanton {
 		this.tempMininima=tempMininima;
 		this.canton=canton;
 	}
+	
 	//Getters de los datos climaticos
 
 	public String getCondClima() {

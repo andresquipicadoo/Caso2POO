@@ -27,23 +27,6 @@ public class MenuPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		leerDatosCantones();
-		leerDatosRegiones();
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuPrincipal frame = new MenuPrincipal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -112,46 +95,4 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(lblNewLabel_1);
 	}
 
-	private static void leerDatosCantones() {
-		System.out.println("*** Clima por Provincias/Cantones ***");
-		try {
-			List<ClimaCanton> listaCantones = LeerJSONCantones.leer();
-			for (ClimaCanton climaCanton : listaCantones) {
-				System.out.println(String.format("Provincia: %s, Canton: %s", 
-						climaCanton.getCanton().getProvincia().getNombre(),
-						climaCanton.getCanton().getNombreCanton()));
-				System.out.println(String.format("Condicion: %s", 
-						climaCanton.getCondClima()));
-				System.out.println(String.format("Temp. Min: %s; Temp. Max: %s", 
-						climaCanton.getTempMininima(),
-						climaCanton.getTemnMaxima()));
-				System.out.println("=========================");
-			}
-		} 
-		catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
-	private static void leerDatosRegiones() {
-		System.out.println("*** Clima por Regiones ***");
-		try {
-			List<ClimaRegion> listaRegiones = LeerJSONRegiones.leer();
-			for (ClimaRegion climaRegion : listaRegiones) {
-				System.out.println(String.format("Region: %s", 
-						climaRegion.getRegion().getNombre()));
-				System.out.println(String.format("Condicion: %s", 
-						climaRegion.getCondClima()));
-				System.out.println(String.format("Temp. Min: %s; Temp. Max: %s", 
-						climaRegion.getTempMininima(),
-						climaRegion.getTemnMaxima()));
-				System.out.println("=========================");
-			}
-		} 
-		catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-		
-	}
 }

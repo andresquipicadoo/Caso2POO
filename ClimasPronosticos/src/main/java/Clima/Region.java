@@ -1,12 +1,19 @@
 package Clima;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Region {
 
 	private String nombre;
+	
+	private Map<Date, ClimaRegion> datosClima;
 
 
     public Region(String nombreRegion) {
         this.nombre = nombreRegion;
+        this.datosClima = new HashMap<>();
     }
 
     public String getNombre() {
@@ -14,9 +21,9 @@ public class Region {
         return nombre;
     }
 
-	public static void add(ClimaRegion region) {
-		// TODO Auto-generated method stub
-		
+	public ClimaRegion agregarDatoClima(Date fecha, ClimaRegion dato) {
+		datosClima.put(fecha, dato);
+		return dato;		
 	}
 	
 
