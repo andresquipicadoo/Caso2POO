@@ -1,6 +1,5 @@
 package UIClima;
 import Clima.ClimaRegion;
-import Clima.LeerJSONRegiones;
 import Clima.Region;
 
 import java.awt.EventQueue;

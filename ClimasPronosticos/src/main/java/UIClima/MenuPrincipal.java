@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 import Clima.Canton;
 import Clima.ClimaCanton;
 import Clima.ClimaRegion;
-import Clima.LeerJSONCantones;
-import Clima.LeerJSONRegiones;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
