@@ -14,6 +14,7 @@ import controller.Archivos;
 import modelo.ContenedorModelo;
 
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -83,7 +84,7 @@ public class GeneradorDatos extends JFrame {
 	public GeneradorDatos(ContenedorModelo modelo) {
 		this.modelo = modelo;
 		setTitle("Generar Datos Clima Aleatorios");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 110);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

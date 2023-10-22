@@ -27,5 +27,9 @@ public class Canton {
 		datosClima.put(fecha,  dato);
 		return dato;
 	}
+	
+	public Map<Date, ClimaCanton> getDatosClima() {
+		return this.datosClima;
+	}
 
 }

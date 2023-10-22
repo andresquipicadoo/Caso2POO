@@ -1,6 +1,9 @@
 package UIClima;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import java.awt.EventQueue;
 
@@ -34,6 +37,7 @@ import modelo.ContenedorModelo;
 import Clima.Canton;
 import Clima.ClimaCanton;
 import Clima.Provincia;
+import javax.swing.JTextPane;
 
 public class ClimaProvinciaUI extends JFrame {
 	// una ventana para consultar el clima por fecha y por area
@@ -109,6 +113,12 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_11.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11.setBounds(764, 10, 117, 87);
 		panel.add(lblNewLabel_11);
+		
+		JTextPane txtPanePronosticoSJO = new JTextPane();
+		txtPanePronosticoSJO.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoSJO.setBounds(648, 195, 203, 200);
+		panel.add(txtPanePronosticoSJO);
+
 
 		JButton btnNewButton_8 = new JButton("Consultar");
 		btnNewButton_8.addActionListener(new ActionListener() {
@@ -139,16 +149,12 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = fecha.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
-
+				validarFechaYDesplegarClima(fecha, "san jose", comboBox, txtPanePronosticoSJO);
 			}
 
 		});
 
-		btnNewButton_8.setForeground(new Color(255, 255, 255));
+		btnNewButton_8.setForeground(Color.BLACK);
 		btnNewButton_8.setBackground(new Color(0, 0, 255));
 		btnNewButton_8.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_8.setBounds(437, 182, 180, 44);
@@ -163,6 +169,7 @@ public class ClimaProvinciaUI extends JFrame {
 		fecha.setBounds(437, 129, 168, 34);
 		panel.add(fecha);
 		fecha.setColumns(10);
+		
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
@@ -199,6 +206,12 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_11_1.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_1.setBounds(734, 10, 116, 87);
 		panel_1.add(lblNewLabel_11_1);
+		
+		JTextPane txtPanePronosticoALA = new JTextPane();
+		txtPanePronosticoALA.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoALA.setBounds(660, 195, 203, 200);
+		panel_1.add(txtPanePronosticoALA);
+
 
 		JButton btnNewButton_9 = new JButton("Consultar");
 		btnNewButton_9.addActionListener(new ActionListener() {
@@ -229,15 +242,10 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-
-				String fechaIngresada = textField_1.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
-
+				validarFechaYDesplegarClima(textField_1, "alajuela", comboBox_1, txtPanePronosticoALA);
 			}
 		});
-		btnNewButton_9.setForeground(new Color(255, 255, 255));
+		btnNewButton_9.setForeground(Color.BLACK);
 		btnNewButton_9.setBackground(new Color(0, 0, 255));
 		btnNewButton_9.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_9.setBounds(459, 210, 196, 35);
@@ -252,6 +260,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4_5.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4_5.setBounds(135, 10, 145, 38);
 		panel_1.add(lblNewLabel_4_5);
+		
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
@@ -284,6 +293,12 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_6.setBounds(387, 122, 178, 32);
 		panel_2.add(textField_6);
 		textField_6.setColumns(10);
+		
+		JTextPane txtPanePronosticoCAR = new JTextPane();
+		txtPanePronosticoCAR.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoCAR.setBounds(648, 195, 203, 200);
+		panel_2.add(txtPanePronosticoCAR);
+
 
 		JButton btnNewButton_4 = new JButton("Consultar");
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -314,13 +329,10 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = textField_6.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
+				validarFechaYDesplegarClima(textField_6, "cartago", comboBox_2, txtPanePronosticoCAR);
 			}
 		});
-		btnNewButton_4.setForeground(new Color(255, 255, 255));
+		btnNewButton_4.setForeground(Color.BLACK);
 		btnNewButton_4.setBackground(new Color(0, 0, 255));
 		btnNewButton_4.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_4.setBounds(387, 170, 176, 32);
@@ -335,6 +347,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4_4.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4_4.setBounds(146, 12, 145, 38);
 		panel_2.add(lblNewLabel_4_4);
+		
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
@@ -372,6 +385,12 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_11_3.setBounds(745, 10, 116, 87);
 		panel_3.add(lblNewLabel_11_3);
 
+		JTextPane txtPanePronosticoHER = new JTextPane();
+		txtPanePronosticoHER.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoHER.setBounds(648, 195, 203, 200);
+		panel_3.add(txtPanePronosticoHER);
+
+		
 		JButton btnNewButton_11 = new JButton("Consultar");
 		btnNewButton_11.addActionListener(new ActionListener() {
 
@@ -401,13 +420,10 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = textField_5.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
+				validarFechaYDesplegarClima(textField_5, "heredia", comboBox_6, txtPanePronosticoHER);
 			}
 		});
-		btnNewButton_11.setForeground(new Color(255, 255, 255));
+		btnNewButton_11.setForeground(Color.BLACK);
 		btnNewButton_11.setBackground(new Color(0, 0, 255));
 		btnNewButton_11.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_11.setBounds(276, 173, 176, 37);
@@ -417,6 +433,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4_3.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4_3.setBounds(40, 10, 145, 38);
 		panel_3.add(lblNewLabel_4_3);
+		
 
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(Color.WHITE);
@@ -449,6 +466,12 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_4.setBounds(456, 120, 187, 29);
 		panel_4.add(textField_4);
 		textField_4.setColumns(10);
+		
+		JTextPane txtPanePronosticoPUN = new JTextPane();
+		txtPanePronosticoPUN.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoPUN.setBounds(648, 195, 203, 200);
+		panel_4.add(txtPanePronosticoPUN);
+
 
 		JButton btnNewButton_12 = new JButton("Consultar");
 		btnNewButton_12.addActionListener(new ActionListener() {
@@ -479,13 +502,10 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = textField_4.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
+				validarFechaYDesplegarClima(textField_4, "puntarenas", comboBox_5, txtPanePronosticoPUN);
 			}
 		});
-		btnNewButton_12.setForeground(new Color(255, 255, 255));
+		btnNewButton_12.setForeground(Color.BLACK);
 		btnNewButton_12.setBackground(new Color(0, 0, 255));
 		btnNewButton_12.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_12.setBounds(456, 168, 187, 34);
@@ -500,6 +520,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4_2.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4_2.setBounds(129, 10, 145, 38);
 		panel_4.add(lblNewLabel_4_2);
+		
 
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(Color.WHITE);
@@ -531,66 +552,15 @@ public class ClimaProvinciaUI extends JFrame {
 		textField_3.setBounds(391, 116, 234, 44);
 		panel_5.add(textField_3);
 		textField_3.setColumns(10);
+		
+		JTextPane txtPanePronosticoGUA = new JTextPane();
+		txtPanePronosticoGUA.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoGUA.setBounds(648, 195, 203, 200);
+		panel_5.add(txtPanePronosticoGUA);
+
 
 		JButton btnNewButton_13 = new JButton("Consultar");
 		btnNewButton_13.addActionListener(new ActionListener() {
-			private void mostrarDatosClimaticos(String fecha) {
-				// TODO: Debes implementar la lógica para mostrar los datos climáticos
-				// basados en la fecha proporcionada (fecha).
-
-				// Asumiendo que tienes el JSON de datos climáticos en una variable llamada
-				// "datosClimaticosJSON":
-				String datosClimaticosJSON = "Tu JSON de datos climáticos aquí";
-
-				// Analizar el JSON (puedes usar una librería como JSON-Java)
-				try {
-					// Supongamos que tienes una lista de regiones en el JSON bajo la clave
-					// "regiones"
-					JSONArray regionesArray = new JSONArray(datosClimaticosJSON);
-
-					// Iterar sobre las regiones para encontrar el Pacífico Norte
-					for (int i = 0; i < regionesArray.length(); i++) {
-						JSONObject regionObj = regionesArray.getJSONObject(i);
-
-						// Verificar si la región actual es el Pacífico Norte
-						if (regionObj.getString("nombre").equals("Pacifico Norte")) {
-							// Mostrar los datos climáticos para el Pacífico Norte
-							JSONObject climaObj = regionObj.getJSONObject("clima");
-							String condicionClima = climaObj.getString("condicion");
-							int tempMaxima = climaObj.getInt("temperaturaMaxima");
-							int tempMinima = climaObj.getInt("temperaturaMinima");
-							int precipitacion = climaObj.getInt("precipitacion");
-							int humedad = climaObj.getInt("humedad");
-							String viento = climaObj.getString("viento");
-							String presionAtmosferica = climaObj.getString("presionAtmosferica");
-							String indiceUV = climaObj.getString("IndiceUV");
-
-							// Mostrar los datos climáticos para el Pacífico Norte
-							String mensaje = "Datos climáticos para el Pacífico Norte el " + fecha + ":\n"
-									+ "Condición climática: " + condicionClima + "\n" + "Temperatura Máxima: "
-									+ tempMaxima + "°C\n" + "Temperatura Mínima: " + tempMinima + "°C\n"
-									+ "Precipitación: " + precipitacion + " mm\n" + "Humedad: " + humedad + "%\n"
-									+ "Viento: " + viento + "\n" + "Presión Atmosférica: " + presionAtmosferica + "\n"
-									+ "Índice UV: " + indiceUV;
-
-							JOptionPane.showMessageDialog(null, mensaje, "Datos Climáticos - Pacífico Norte",
-									JOptionPane.INFORMATION_MESSAGE);
-							return; // Salir de la función después de mostrar los datos del Pacífico Norte
-						}
-					}
-
-					// Si no se encontraron datos para el Pacífico Norte
-					JOptionPane.showMessageDialog(null,
-							"No se encontraron datos climáticos para el Pacífico Norte en la fecha " + fecha,
-							"Advertencia", JOptionPane.WARNING_MESSAGE);
-				} catch (JSONException e) {
-					e.printStackTrace();
-					// Manejar excepciones en caso de problemas con el JSON
-					JOptionPane.showMessageDialog(null, "Error al procesar los datos climáticos.", "Error",
-							JOptionPane.ERROR_MESSAGE);
-				}
-			}
-
 			private void validarYMostrarFechaIngresada(String fechaIngresada) {
 				// Paso 1: Verifica si la fecha ingresada está vacía
 				if (fechaIngresada.isEmpty()) {
@@ -617,16 +587,12 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = textField_3.getText();
-				String fecha = textField_3.getText();
+				validarFechaYDesplegarClima(textField_3, "guanacaste", comboBox_4, txtPanePronosticoGUA);
 
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
-				mostrarDatosClimaticos(fecha);
 			}
 		});
 		btnNewButton_13.setBackground(new Color(0, 0, 255));
-		btnNewButton_13.setForeground(new Color(255, 255, 255));
+		btnNewButton_13.setForeground(Color.BLACK);
 		btnNewButton_13.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_13.setBounds(391, 189, 182, 41);
 		panel_5.add(btnNewButton_13);
@@ -640,6 +606,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4_1.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4_1.setBounds(85, 12, 145, 38);
 		panel_5.add(lblNewLabel_4_1);
+		
 
 		JPanel panel_6 = new JPanel();
 		panel_6.setBackground(Color.WHITE);
@@ -676,6 +643,12 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_11_6.setIcon(new ImageIcon(ClimaProvinciaUI.class.getResource("/soleado.png")));
 		lblNewLabel_11_6.setBounds(745, 18, 115, 87);
 		panel_6.add(lblNewLabel_11_6);
+		
+		JTextPane txtPanePronosticoLIM = new JTextPane();
+		txtPanePronosticoLIM.setBackground(Color.LIGHT_GRAY);
+		txtPanePronosticoLIM.setBounds(648, 195, 203, 200);
+		panel_6.add(txtPanePronosticoLIM);
+
 
 		JButton btnNewButton_14 = new JButton("Consultar");
 		btnNewButton_14.addActionListener(new ActionListener() {
@@ -706,14 +679,11 @@ public class ClimaProvinciaUI extends JFrame {
 			}
 
 			public void actionPerformed(ActionEvent e) {
-				String fechaIngresada = textField_2.getText();
-
-				// Llama al método para validar y mostrar la fecha
-				validarYMostrarFechaIngresada(fechaIngresada);
+				validarFechaYDesplegarClima(textField_2, "limon", comboBox_3, txtPanePronosticoLIM);
 			}
 		});
 		btnNewButton_14.setBackground(new Color(0, 0, 255));
-		btnNewButton_14.setForeground(new Color(255, 255, 255));
+		btnNewButton_14.setForeground(Color.BLACK);
 		btnNewButton_14.setFont(new Font("Arial Black", Font.PLAIN, 15));
 		btnNewButton_14.setBounds(524, 125, 158, 38);
 		panel_6.add(btnNewButton_14);
@@ -722,6 +692,7 @@ public class ClimaProvinciaUI extends JFrame {
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		lblNewLabel_4.setBounds(122, 2, 145, 38);
 		panel_6.add(lblNewLabel_4);
+		
 
 		JButton btnNewButton = new JButton("Regresar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -748,5 +719,63 @@ public class ClimaProvinciaUI extends JFrame {
 	private void regresarsAVentanaPrincipal() {
 
 		dispose();
+	}
+	
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	/**
+	 * Este método valida que la fecha digitada por el usuario sea válida y despliega el clima para la provincia, cantón y fecha especificados.
+	 * El método es reusable para todos los tabs que tienen las provincias
+	 * @param campoFecha el TextField que tiene el campo de la fecha
+	 * @param provincia la provincia para consultar y validar
+	 * @param cbCanton el ComboBox que tiene el cantón seleccionado por el usuario
+	 * @param despliegue el TextPane donde se van a desplegar los datos de clima
+	 */
+	private void validarFechaYDesplegarClima(JTextField campoFecha, String provincia, JComboBox cbCanton, JTextPane despliegue) {
+		String strFecha = campoFecha.getText();
+		StringBuilder sb = new StringBuilder();
+		Date fecha = null;
+		boolean ok = true;
+		try {
+			fecha = sdf.parse(strFecha);
+		} 
+		catch (ParseException e) {
+			JOptionPane.showMessageDialog(null, String.format("Fecha inválida: %s. Digite una fecha válida para desplegar el clima", strFecha));
+			sb.append("Especifique una fecha!");
+			ok = false;
+		}
+		if (ok) {
+			// desplegar el clima
+			String canton = String.valueOf(cbCanton.getSelectedItem());
+			Provincia prov = modelo.getProvincias().get(provincia);
+			if (prov != null) {
+				Map<String, Canton> cantones = prov.getCantones();
+				Canton c = cantones.get(canton);
+				if (c != null) {
+					ClimaCanton climaCanton = c.getDatosClima().get(fecha);
+					if (climaCanton != null) {
+						sb.append(String.format("Provincia: %s, Cantón: %s\n", provincia, canton));
+						sb.append(String.format("Condicion: %s\n", climaCanton.getCondClima()));
+						sb.append(String.format("Mínima: %s\n", climaCanton.getTempMininima()));
+						sb.append(String.format("Máxima: %s\n", climaCanton.getTemnMaxima()));
+						sb.append(String.format("Precipitación: %s mm.\n", climaCanton.getLluvia()));
+						sb.append(String.format("Humedad: %s %%\n", climaCanton.getHumedad()));
+						sb.append(String.format("Vel. Viento: %s\n", climaCanton.getViento()));
+						sb.append(String.format("Fase lunar: %s\n", climaCanton.getFaseLunar()));
+						sb.append(String.format("Indice UV: %s", climaCanton.getPorcentajeIndiceUV()));
+					}
+					else {
+						sb.append(String.format("No hay datos de clima para el cantón %s de %s en la fecha %s", canton, provincia, strFecha));
+					}
+				}
+				else {
+					sb.append(String.format("No hay datos de clima para el cantón %s de %s", canton, provincia));
+				}
+			}
+			else {
+				sb.append(String.format("No hay datos de clima para la provincia de %s", provincia));
+			}
+		}
+		despliegue.setText(sb.toString());
 	}
 }
