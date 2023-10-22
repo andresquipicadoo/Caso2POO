@@ -32,6 +32,7 @@ import javax.swing.JRadioButton;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import UIClima.validarFecha;
+import modelo.ContenedorModelo;
 
 public class ClimaRegionUI extends JFrame {
     //una ventana para consultar el clima por fecha y por area
@@ -62,7 +63,7 @@ public class ClimaRegionUI extends JFrame {
 	 */
 	
 	
-	public ClimaRegionUI() {
+	public ClimaRegionUI(ContenedorModelo modelo) {
 		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

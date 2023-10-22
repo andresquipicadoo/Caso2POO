@@ -36,7 +36,7 @@ public class ClimaController {
 		try {
 			datosProvincias = Archivos.leerArchivoCantones(rutaBase);
 			datosRegiones = Archivos.leerArchivoRegiones(rutaBase);
-			modelo = new ContenedorModelo(datosProvincias, datosRegiones);
+			modelo = new ContenedorModelo(rutaBase, datosProvincias, datosRegiones);
 		} 
 		catch (URISyntaxException e) {
 			System.out.println("No se pudieron cargar los datos de regiones y cantones.");

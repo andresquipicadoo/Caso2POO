@@ -14,10 +14,16 @@ public class Provincia {
         this.cantones = new HashMap<>();
     }
     
-    public Canton agregarCanton(Canton canton) {
-    	this.cantones.put(canton.getNombreCanton(), canton);
-    	return canton;
+    public Canton agregarCanton(String canton) {
+    	if (this.cantones.containsKey(canton)) {
+    		return this.cantones.get(canton);
+    	}
+    	Canton nuevo = new Canton(this, canton);
+    	this.cantones.put(canton, nuevo);
+    	return nuevo;
     }
+    
+
 
     public String getNombre() {
         return nombre;

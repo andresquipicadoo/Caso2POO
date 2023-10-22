@@ -24,8 +24,8 @@ import Clima.Provincia;
 import Clima.Region;
 
 public class Archivos {
-	private static final String archivoCantones = "ClimaCantones.json"; 
-	private static final String archivoRegiones = "ClimaRegiones.json";
+	public static final String archivoCantones = "ClimaCantones.json"; 
+	public static final String archivoRegiones = "ClimaRegiones.json";
 	
 	public static Map<String, Provincia> leerArchivoCantones(Path rutaBase) throws URISyntaxException {
 		Path rutaArchivo = rutaBase.resolve(archivoCantones);
@@ -77,14 +77,18 @@ public class Archivos {
 	            JSONObject climaObject = cantonObject.getJSONObject("clima");
 
 	            // Procesa los datos de provincia y canton
+	            // verificamos si la provincia ya se proceso
+	            Provincia provincia = null;
 	            String nombreProvincia = cantonObject.getString("provincia").toLowerCase();
+	            if (provincias.containsKey(nombreProvincia)) {
+	            	provincia = provincias.get(nombreProvincia);
+	            }
+	            else {
+	            	provincia = new Provincia(nombreProvincia);
+	            	provincias.put(nombreProvincia, provincia);
+	            }
 	            String nombreCanton = cantonObject.getString("nombre");
-	            // crear objeto provincia
-	            Provincia provincia = new Provincia(nombreProvincia);
-	            // crear objeto cantón
-	            Canton canton = new Canton(provincia, nombreCanton);
-	            // agregar objeto provincia al mapa que se va a retornar
-	            provincias.put(nombreProvincia, provincia);
+	            Canton canton = provincia.agregarCanton(nombreCanton);
 	            // fecha del dato de clima
 	            String fechaString = cantonObject.getString("fecha");
 	            Date fecha = null;
@@ -111,8 +115,6 @@ public class Archivos {
 		            ClimaCanton climaCanton = new ClimaCanton(condicionClima,temperaturaMaxima,temperaturaMinima, humedad,precipitacion,viento,faseLunar,porcentajeUV, canton);
 		            // se agrega el dato de clima al cantón para la fecha indicada
 		            canton.agregarDatoClima(fecha, climaCanton);
-		            // agregar canton a provincia
-		            provincia.agregarCanton(canton);
 	            }
 	        }
 

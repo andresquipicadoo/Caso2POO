@@ -43,9 +43,16 @@ public class MenuPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton button = new JButton("New button");
-		button.setBounds(109, 189, -9, 60);
-		contentPane.add(button);
+		JButton btnGenerarDatos = new JButton("Generar Datos");
+		btnGenerarDatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GeneradorDatos generador = new GeneradorDatos(modelo);
+				generador.setVisible(true);
+			}
+		});
+		btnGenerarDatos.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnGenerarDatos.setBounds(64, 189, 229, 60);
+		contentPane.add(btnGenerarDatos);
 		
 		JLabel lblNewLabel = new JLabel("Menu principal");
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 38));
@@ -56,7 +63,7 @@ public class MenuPrincipal extends JFrame {
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClimaRegionUI climas=new ClimaRegionUI();
+				ClimaRegionUI climas=new ClimaRegionUI(modelo);
 				climas.setVisible(true);
 			}
 		});
@@ -86,7 +93,7 @@ public class MenuPrincipal extends JFrame {
 		});
 		btnNewButton_2.setBackground(Color.RED);
 		btnNewButton_2.setFont(new Font("Arial Black", Font.PLAIN, 26));
-		btnNewButton_2.setBounds(207, 189, 242, 60);
+		btnNewButton_2.setBounds(350, 189, 242, 60);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
