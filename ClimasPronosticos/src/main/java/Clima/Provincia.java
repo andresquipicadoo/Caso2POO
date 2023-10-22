@@ -21,5 +21,9 @@ public class Provincia {
 
     public String getNombre() {
         return nombre;
-    } 
+    }
+    
+    public Map<String, Canton> getCantones() {
+    	return cantones;
+    }
 }

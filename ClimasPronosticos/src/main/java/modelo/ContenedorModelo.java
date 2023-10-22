@@ -13,8 +13,18 @@ public class ContenedorModelo {
 	private Map<String, Provincia> provincias;
 	private Map<String, Region> regiones;
 
-	public ContenedorModelo() {
-		this.provincias = new HashMap<>();
-		this.regiones = new HashMap<>();
+	public ContenedorModelo(Map<String, Provincia> provincias, Map<String, Region> regiones) {
+		this.provincias = provincias;
+		this.regiones = regiones;
 	}
+
+	public Map<String, Provincia> getProvincias() {
+		return provincias;
+	}
+
+	public Map<String, Region> getRegiones() {
+		return regiones;
+	}
+	
+	
 }

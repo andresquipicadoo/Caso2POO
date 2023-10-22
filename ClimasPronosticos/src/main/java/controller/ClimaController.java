@@ -9,6 +9,7 @@ import java.util.Map;
 import Clima.Provincia;
 import Clima.Region;
 import UIClima.MenuPrincipal;
+import modelo.ContenedorModelo;
 
 public class ClimaController {
 	private Path rutaBase;
@@ -30,20 +31,23 @@ public class ClimaController {
 	public void iniciar() {
 		Map<String, Provincia> datosProvincias = null;
 		Map<String, Region> datosRegiones = null;
+		ContenedorModelo modelo = null;
 		
 		try {
 			datosProvincias = Archivos.leerArchivoCantones(rutaBase);
 			datosRegiones = Archivos.leerArchivoRegiones(rutaBase);
+			modelo = new ContenedorModelo(datosProvincias, datosRegiones);
 		} 
 		catch (URISyntaxException e) {
 			System.out.println("No se pudieron cargar los datos de regiones y cantones.");
 		}
 		
-		if (datosProvincias != null && datosRegiones != null) {
+		if (modelo != null) {
+			final ContenedorModelo m = modelo;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						MenuPrincipal frame = new MenuPrincipal();
+						MenuPrincipal frame = new MenuPrincipal(m);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();

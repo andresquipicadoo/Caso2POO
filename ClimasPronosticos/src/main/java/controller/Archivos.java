@@ -77,7 +77,7 @@ public class Archivos {
 	            JSONObject climaObject = cantonObject.getJSONObject("clima");
 
 	            // Procesa los datos de provincia y canton
-	            String nombreProvincia = cantonObject.getString("provincia");
+	            String nombreProvincia = cantonObject.getString("provincia").toLowerCase();
 	            String nombreCanton = cantonObject.getString("nombre");
 	            // crear objeto provincia
 	            Provincia provincia = new Provincia(nombreProvincia);

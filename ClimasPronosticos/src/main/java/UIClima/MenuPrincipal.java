@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import Clima.Canton;
 import Clima.ClimaCanton;
 import Clima.ClimaRegion;
+import modelo.ContenedorModelo;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -24,12 +25,14 @@ public class MenuPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private final ContenedorModelo modelo;
 
 
 	/**
 	 * Create the frame.
 	 */
-	public MenuPrincipal() {
+	public MenuPrincipal(ContenedorModelo modelo) {
+		this.modelo = modelo;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 726, 450);
 		contentPane = new JPanel();
@@ -65,7 +68,7 @@ public class MenuPrincipal extends JFrame {
 		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClimaProvinciaUI clima=new ClimaProvinciaUI();
+				ClimaProvinciaUI clima=new ClimaProvinciaUI(modelo);
 				clima.setVisible(true);
 				
 			}
@@ -88,7 +91,7 @@ public class MenuPrincipal extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBackground(Color.LIGHT_GRAY);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\aquir\\Downloads\\Free Wallpaper, Fractal, Lines Background Images, Wave Pattern Texture Graphic Background Photo Background PNG and Vectors(1).jpeg"));
+		lblNewLabel_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/fondo.jpeg")));
 		lblNewLabel_1.setBounds(10, 10, 702, 389);
 		contentPane.add(lblNewLabel_1);
 	}

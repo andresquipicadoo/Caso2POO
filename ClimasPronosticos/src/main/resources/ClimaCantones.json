@@ -49,7 +49,7 @@
       "fecha": "15/10/2023"
     },
     {
-      "nombre": "Puntarenas",
+      "nombre": "Golfito",
       "provincia": "Puntarenas",
       "clima": {
         "condicion": "Templado",
@@ -65,8 +65,59 @@
       "fecha": "15/10/2023"
     },
     {
-      "nombre": "Limon",
-      "provincia": "Limón",
+      "nombre": "Guácimo",
+      "provincia": "Limon",
+      "clima": {
+        "condicion": "Ventoso",
+        "temperaturaMaxima": 24,
+        "temperaturaMinima": 15,
+        "precipitacion": 8,
+        "humedad": 50,
+        "viento": "12 km/h",
+        "presionAtmosferica": "1013 hPa",
+        "IndiceUV": "12%"
+        
+      },
+      "faseLunar": "Cuarto Creciente",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Belén",
+      "provincia": "Heredia",
+      "clima": {
+        "condicion": "Ventoso",
+        "temperaturaMaxima": 24,
+        "temperaturaMinima": 15,
+        "precipitacion": 8,
+        "humedad": 50,
+        "viento": "12 km/h",
+        "presionAtmosferica": "1013 hPa",
+        "IndiceUV": "12%"
+        
+      },
+      "faseLunar": "Cuarto Creciente",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "San Carlos",
+      "provincia": "Alajuela",
+      "clima": {
+        "condicion": "Ventoso",
+        "temperaturaMaxima": 24,
+        "temperaturaMinima": 15,
+        "precipitacion": 8,
+        "humedad": 50,
+        "viento": "12 km/h",
+        "presionAtmosferica": "1013 hPa",
+        "IndiceUV": "12%"
+        
+      },
+      "faseLunar": "Cuarto Creciente",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Paraíso",
+      "provincia": "Cartago",
       "clima": {
         "condicion": "Ventoso",
         "temperaturaMaxima": 24,
