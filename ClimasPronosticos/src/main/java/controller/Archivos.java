@@ -32,6 +32,7 @@ public class Archivos {
 		File f = rutaArchivo.toFile();
 		URI uri = null;
 		if (f.exists()) {
+			System.out.println(String.format("Archivo %s encontrado ...", f.toString()));
 			uri = f.toURI();
 		}
 		else {
@@ -46,6 +47,7 @@ public class Archivos {
 		File f = rutaArchivo.toFile();
 		URI uri = null;
 		if (f.exists()) {
+			System.out.println(String.format("Archivo %s encontrado ...", f.toString()));
 			uri = f.toURI();
 		}
 		else {
