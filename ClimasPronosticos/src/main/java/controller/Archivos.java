@@ -156,8 +156,12 @@ public class Archivos {
 
 				// Extrae los datos de la región
 				String nombreRegion = jsonRegion.getString("nombre");
-				// Crea objeto region
-				Region region = new Region(nombreRegion);
+				// Recupera objeto region
+				Region region = regiones.get(nombreRegion);
+				if (region == null) {
+					region = new Region(nombreRegion);
+					regiones.put(nombreRegion, region);
+				}
 				// procesar la fecha del dato de clima
 				String fechaString = jsonRegion.getString("fecha");
 	            Date fecha = null;
@@ -183,7 +187,6 @@ public class Archivos {
 					ClimaRegion climaRegion = new ClimaRegion(condicionClima, temperaturaMaxima, temperaturaMinima, humedad,
 							precipitacion, viento, faseLunar, porcentajeUV, region);
 					region.agregarDatoClima(fecha, climaRegion);
-					regiones.put(nombreRegion, region);
 	            }
 
 			}

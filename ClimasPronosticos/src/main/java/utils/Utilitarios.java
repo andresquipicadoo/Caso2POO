@@ -15,4 +15,15 @@ public class Utilitarios {
 			return url.toURI();
 		}
 	}
+	
+	/**
+	 * Convierte un string con la primera letra mayúscula
+	 * @param str
+	 * @return el string con la primera letra convertida a mayúsculas
+	 */
+	public static String capitalizar(String str)
+	{
+	    if(str == null || str.isEmpty() || str.isBlank() || str.length() <= 1) return str;
+	    return str.substring(0, 1).toUpperCase() + str.substring(1);
+	}
 }

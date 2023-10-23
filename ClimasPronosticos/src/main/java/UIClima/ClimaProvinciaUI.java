@@ -31,6 +31,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+import javax.swing.WindowConstants;
 import javax.swing.DefaultComboBoxModel;
 import UIClima.validarFecha;
 import modelo.ContenedorModelo;
@@ -38,6 +39,8 @@ import Clima.Canton;
 import Clima.ClimaCanton;
 import Clima.Provincia;
 import javax.swing.JTextPane;
+
+import utils.Utilitarios;
 
 public class ClimaProvinciaUI extends JFrame {
 	// una ventana para consultar el clima por fecha y por area
@@ -63,7 +66,7 @@ public class ClimaProvinciaUI extends JFrame {
 	 */
 	public ClimaProvinciaUI(ContenedorModelo modelo) {
 		this.modelo = modelo;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 941, 619);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -116,7 +119,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoSJO = new JTextPane();
 		txtPanePronosticoSJO.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoSJO.setBounds(648, 195, 203, 200);
+		txtPanePronosticoSJO.setBounds(648, 195, 203, 220);
 		panel.add(txtPanePronosticoSJO);
 
 
@@ -209,7 +212,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoALA = new JTextPane();
 		txtPanePronosticoALA.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoALA.setBounds(660, 195, 203, 200);
+		txtPanePronosticoALA.setBounds(660, 195, 203, 220);
 		panel_1.add(txtPanePronosticoALA);
 
 
@@ -296,7 +299,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoCAR = new JTextPane();
 		txtPanePronosticoCAR.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoCAR.setBounds(648, 195, 203, 200);
+		txtPanePronosticoCAR.setBounds(648, 195, 203, 220);
 		panel_2.add(txtPanePronosticoCAR);
 
 
@@ -387,7 +390,7 @@ public class ClimaProvinciaUI extends JFrame {
 
 		JTextPane txtPanePronosticoHER = new JTextPane();
 		txtPanePronosticoHER.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoHER.setBounds(648, 195, 203, 200);
+		txtPanePronosticoHER.setBounds(648, 195, 203, 220);
 		panel_3.add(txtPanePronosticoHER);
 
 		
@@ -469,7 +472,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoPUN = new JTextPane();
 		txtPanePronosticoPUN.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoPUN.setBounds(648, 195, 203, 200);
+		txtPanePronosticoPUN.setBounds(648, 195, 203, 220);
 		panel_4.add(txtPanePronosticoPUN);
 
 
@@ -555,7 +558,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoGUA = new JTextPane();
 		txtPanePronosticoGUA.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoGUA.setBounds(648, 195, 203, 200);
+		txtPanePronosticoGUA.setBounds(648, 195, 203, 220);
 		panel_5.add(txtPanePronosticoGUA);
 
 
@@ -646,7 +649,7 @@ public class ClimaProvinciaUI extends JFrame {
 		
 		JTextPane txtPanePronosticoLIM = new JTextPane();
 		txtPanePronosticoLIM.setBackground(Color.LIGHT_GRAY);
-		txtPanePronosticoLIM.setBounds(648, 195, 203, 200);
+		txtPanePronosticoLIM.setBounds(648, 195, 203, 220);
 		panel_6.add(txtPanePronosticoLIM);
 
 
@@ -748,20 +751,21 @@ public class ClimaProvinciaUI extends JFrame {
 			// desplegar el clima
 			String canton = String.valueOf(cbCanton.getSelectedItem());
 			Provincia prov = modelo.getProvincias().get(provincia);
+			provincia = Utilitarios.capitalizar(provincia);
 			if (prov != null) {
 				Map<String, Canton> cantones = prov.getCantones();
 				Canton c = cantones.get(canton);
 				if (c != null) {
 					ClimaCanton climaCanton = c.getDatosClima().get(fecha);
 					if (climaCanton != null) {
-						sb.append(String.format("Provincia: %s, Cantón: %s\n", provincia, canton));
-						sb.append(String.format("Condicion: %s\n", climaCanton.getCondClima()));
-						sb.append(String.format("Mínima: %s\n", climaCanton.getTempMininima()));
-						sb.append(String.format("Máxima: %s\n", climaCanton.getTemnMaxima()));
-						sb.append(String.format("Precipitación: %s mm.\n", climaCanton.getLluvia()));
-						sb.append(String.format("Humedad: %s %%\n", climaCanton.getHumedad()));
-						sb.append(String.format("Vel. Viento: %s\n", climaCanton.getViento()));
-						sb.append(String.format("Fase lunar: %s\n", climaCanton.getFaseLunar()));
+						sb.append(String.format("<h4>Provincia: %s, Cantón: %s</h4><br>", provincia, canton));
+						sb.append(String.format("Condicion: %s<br>", climaCanton.getCondClima()));
+						sb.append(String.format("Mínima: %s<br>", climaCanton.getTempMininima()));
+						sb.append(String.format("Máxima: %s<br>", climaCanton.getTemnMaxima()));
+						sb.append(String.format("Precipitación: %s mm.<br>", climaCanton.getLluvia()));
+						sb.append(String.format("Humedad: %s %%<br>", climaCanton.getHumedad()));
+						sb.append(String.format("Vel. Viento: %s<br>", climaCanton.getViento()));
+						sb.append(String.format("Fase lunar: %s<br>", climaCanton.getFaseLunar()));
 						sb.append(String.format("Indice UV: %s", climaCanton.getPorcentajeIndiceUV()));
 					}
 					else {
@@ -776,6 +780,7 @@ public class ClimaProvinciaUI extends JFrame {
 				sb.append(String.format("No hay datos de clima para la provincia de %s", provincia));
 			}
 		}
+		despliegue.setContentType("text/html");
 		despliegue.setText(sb.toString());
 	}
 }

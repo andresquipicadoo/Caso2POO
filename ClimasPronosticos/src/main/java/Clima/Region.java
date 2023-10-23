@@ -26,5 +26,8 @@ public class Region {
 		return dato;		
 	}
 	
+	public Map<Date, ClimaRegion> getDatosClima() {
+		return this.datosClima;
+	}
 
 }
