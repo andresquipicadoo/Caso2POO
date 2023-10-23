@@ -1,0 +1,109 @@
+{
+  "regiones": [
+    {
+      "nombre": "Pacifico Norte",
+      "clima": {
+        "condicion": "Soleado",
+        "temperaturaMaxima": 32,
+        "temperaturaMinima": 22,
+        "precipitacion": 5,
+        "humedad": 60,
+        "viento": "5 km/h",
+        "presionAtmosferica": "1015 hPa",
+        "IndiceUV": "15%"
+      },
+      "faseLunar": "Cuarto Creciente",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Pacifico Central",
+      "clima": {
+        "condicion": "Lluvioso",
+        "temperaturaMaxima": 28,
+        "temperaturaMinima": 19,
+        "precipitacion": 25,
+        "humedad": 75,
+        "viento": "10 km/h",
+        "presionAtmosferica": "1010 hPa",
+        "IndiceUV": "10%"
+      },
+      "faseLunar": "Luna Llena",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Pacifico Sur",
+      "clima": {
+        "condicion": "Nublado",
+        "temperaturaMaxima": 30,
+        "temperaturaMinima": 20,
+        "precipitacion": 15,
+        "humedad": 70,
+        "viento": "8 km/h",
+        "presionAtmosferica": "1012 hPa",
+        "IndiceUV": "12%"
+      },
+      "faseLunar": "Cuarto Menguante",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Zona Norte",
+      "clima": {
+        "condicion": "Templado",
+        "temperaturaMaxima": 26,
+        "temperaturaMinima": 18,
+        "precipitacion": 10,
+        "humedad": 55,
+        "viento": "7 km/h",
+        "presionAtmosferica": "1014 hPa",
+        "IndiceUV": "13%"
+      },
+      "faseLunar": "Luna Nueva",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Valle Central",
+      "clima": {
+        "condicion": "Ventoso",
+        "temperaturaMaxima": 24,
+        "temperaturaMinima": 15,
+        "precipitacion": 8,
+        "humedad": 50,
+        "viento": "12 km/h",
+        "presionAtmosferica": "1013 hPa",
+        "IndiceUV": "15%"
+      },
+      "faseLunar": "Cuarto Creciente",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Caribe Norte",
+      "clima": {
+        "condicion": "Lluvioso",
+        "temperaturaMaxima": 29,
+        "temperaturaMinima": 21,
+        "precipitacion": 30,
+        "humedad": 80,
+        "viento": "15 km/h",
+        "presionAtmosferica": "1008 hPa",
+        "IndiceUV": "9%"
+      },
+      "faseLunar": "Luna Llena",
+      "fecha": "15/10/2023"
+    },
+    {
+      "nombre": "Caribe Sur",
+      "clima": {
+        "condicion": "Húmedo",
+        "temperaturaMaxima": 31,
+        "temperaturaMinima": 22,
+        "precipitacion": 20,
+        "humedad": 85,
+        "viento": "10 km/h",
+        "presionAtmosferica": "1010 hPa",
+        "IndiceUV": "15%"
+      },
+      "faseLunar": "Cuarto Menguante",
+      "fecha": "15/10/2023"
+    }
+  ]
+}
